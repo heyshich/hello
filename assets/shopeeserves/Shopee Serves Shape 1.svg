@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 502.48 500.13">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        opacity: .8;
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-5 {
+        fill: #cc1515;
+      }
+
+      .cls-6 {
+        fill: #ffbc15;
+        opacity: .9;
+      }
+
+      .cls-4 {
+        fill: #ff8724;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="201.11" y1="250.2" x2="502.48" y2="250.2" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff912e"/>
+      <stop offset="1" stop-color="#f7620d"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0" y1="250.2" x2="301.37" y2="250.2" gradientTransform="translate(301.37 500.39) rotate(180)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fdba01"/>
+      <stop offset="1" stop-color="#ff912e"/>
+    </linearGradient>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <rect class="cls-1" x="99.93" y="298.48" width="301.37" height="101.94" rx="50.86" ry="50.86" transform="translate(-98.84 600.06) rotate(-90)"/>
+      <rect class="cls-1" x="100.4" y="99.71" width="301.37" height="101.94" rx="50.86" ry="50.86" transform="translate(401.77 -100.4) rotate(90)"/>
+      <rect class="cls-1" x="201.11" y="199.23" width="301.37" height="101.94" rx="50.86" ry="50.86"/>
+      <path class="cls-1" d="M50.86,199.23h199.64c28.07,0,50.86,22.79,50.86,50.86v51.08H50.86C22.79,301.17,0,278.37,0,250.3v-.21C0,222.02,22.79,199.23,50.86,199.23Z" transform="translate(301.37 500.39) rotate(-180)"/>
+      <ellipse class="cls-1" cx="250.61" cy="250.2" rx="50.97" ry="51.8"/>
+      <g>
+        <rect class="cls-4" x="99.93" y="298.48" width="301.37" height="101.94" rx="50.86" ry="50.86" transform="translate(-98.84 600.06) rotate(-90)"/>
+        <rect class="cls-6" x="100.4" y="99.71" width="301.37" height="101.94" rx="50.86" ry="50.86" transform="translate(401.77 -100.4) rotate(90)"/>
+        <rect class="cls-2" x="201.11" y="199.23" width="301.37" height="101.94" rx="50.86" ry="50.86"/>
+        <path class="cls-3" d="M50.86,199.23h199.64c28.07,0,50.86,22.79,50.86,50.86v51.08H50.86C22.79,301.17,0,278.37,0,250.3v-.21C0,222.02,22.79,199.23,50.86,199.23Z" transform="translate(301.37 500.39) rotate(-180)"/>
+        <ellipse class="cls-5" cx="250.61" cy="250.2" rx="50.97" ry="51.8"/>
+      </g>
+    </g>
+  </g>
+</svg>
