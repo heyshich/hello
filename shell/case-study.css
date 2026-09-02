@@ -1,0 +1,104 @@
+/* ─── Hero (animated: rotating circles + static logo) ─────────────── */
+    .hero-cs { position: relative; overflow: hidden; background: var(--black); --hh: 600px; height: var(--hh); display: grid; place-items: center; }
+    .hero-cs-circles { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+    /* A zero-size pivot sits exactly at the hero centre and rotates; the art is
+       offset so its true concentric centre lands on that pivot — so the ring
+       stays centred on the logo and rotation is perfectly seamless. This centre
+       (50.0035%, 50.2982%) was solved by least-squares circle-fitting 615 of the
+       arc strokes in Circles.svg (not eyeballed from one background circle —
+       that gave 48.76%/51.72%, which is why it wobbled off-centre before).
+       Scaled up to fill the frame like Hackathon_Header.png. */
+    .hero-cs-spin { position: absolute; top: 50%; left: 50%; width: 0; height: 0; animation: spin 90s linear infinite; will-change: transform; }
+    .hero-cs-spin img { --s: max(122vw, calc(var(--hh) * 2.75)); position: absolute; width: var(--s); height: var(--s); max-width: none; left: calc(var(--s) * -0.500035); top: calc(var(--s) * -0.502982); }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    /* Floor raised (270→320) so the lockup reads larger on phones — the 51vw
+       curve is unchanged, so nothing above ~627px viewport width is affected. */
+    .hero-cs-logo { position: relative; z-index: 2; width: clamp(320px, 51vw, 660px); padding: 0 var(--pad);
+      /* Optical nudge: the wordmark's ink mass isn't symmetric top/bottom within
+         its own frame, so geometric centring alone reads slightly low — shift up. */
+      transform: translateY(-3%); }
+    .hero-cs-logo img { width: 100%; height: auto; }
+    /* soft vignette so the trails fade at the frame edges */
+    .hero-cs::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(120% 80% at 50% 50%, transparent 55%, rgba(0,0,0,.55) 100%); }
+
+    /* ─── Metadata strip ──────────────────────────────────────────────── */
+    .meta { border-bottom: 1px solid var(--line); }
+    .meta-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem 2rem; padding-block: clamp(1.75rem, 3vw, 2.5rem); }
+    @media (max-width: 720px) { .meta-row { grid-template-columns: 1fr; } }
+    .meta-row dt { font-family: var(--font-wide); font-weight: 500; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+    .meta-row dd { margin: 0; font-size: clamp(0.95rem, 1.3vw, 1.15rem); color: var(--ink); }
+
+    /* ─── Two-column intro ────────────────────────────────────────────── */
+    .intro { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+    @media (max-width: 860px) { .intro { grid-template-columns: 1fr; gap: 1.75rem; } }
+    .intro h1 { font-family: var(--font-hk); font-stretch: 125%; font-weight: 500; font-size: clamp(1.9rem, 3.8vw, 3.4rem); line-height: 1.08; letter-spacing: -0.015em; margin: 0; }
+    .intro .body p { margin: 0 0 1.2rem; font-size: clamp(1rem, 1.3vw, 1.2rem); line-height: 1.62; color: var(--ink-2); max-width: 46ch; }
+    .intro .body p:last-child { margin-bottom: 0; }
+
+    /* ─── Element derivation (image left, body copy right) ─────────────── */
+    .element-row { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+    @media (max-width: 860px) { .element-row { grid-template-columns: 1fr; gap: 1.75rem; } }
+    .element-row .media { border-radius: 3px; overflow: hidden; background: var(--black); aspect-ratio: 2 / 1; }
+    .element-row .media img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .element-row .copy p { margin: 0; font-family: var(--font-body); font-size: clamp(1rem, 1.3vw, 1.2rem); line-height: 1.62; color: var(--ink-2); max-width: 46ch; }
+
+    /* ─── Media / grids ───────────────────────────────────────────────── */
+    .media { border-radius: 3px; overflow: hidden; background: var(--black); }
+    .media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    figure { margin: 0; }
+    figcaption { margin-top: 1rem; }
+    figcaption .cap-t { font-family: var(--font-hk); font-stretch: 125%; font-weight: 500; font-size: clamp(1.05rem, 1.5vw, 1.35rem); letter-spacing: -0.01em; }
+    figcaption .cap-d { margin-top: .35rem; color: var(--muted); font-size: 15px; max-width: 40ch; }
+
+    /* ─── Social launch showcase (single pre-composed asset) ────────────── */
+    .sm-media { border-radius: 3px; overflow: hidden; }
+    .sm-media img { width: 100%; height: auto; display: block; }
+
+    /* ─── Event photos ────────────────────────────────────────────────── */
+    .photo-spread { width: 100%; }
+    .photo-spread img { width: 100%; height: clamp(300px, 56vw, 780px); object-fit: cover; object-position: center 78%; display: block; }
+    .photo-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(1rem, 2vw, 1.75rem); margin-top: clamp(1rem, 2vw, 1.75rem); }
+    .photo-grid figure { grid-column: span 2; }
+    .photo-grid .pg-big { grid-column: span 3; }
+    .photo-grid img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 3px; display: block; }
+    @media (max-width: 720px) { .photo-grid { grid-template-columns: repeat(2, 1fr); } .photo-grid figure, .photo-grid .pg-big { grid-column: auto; } }
+
+    /* ─── Event details card ──────────────────────────────────────────── */
+    .details { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding-block: clamp(2.5rem, 5vw, 4.5rem); }
+    @media (max-width: 860px) { .details { grid-template-columns: 1fr; gap: 2rem; } }
+    .details dl { display: grid; grid-template-columns: auto 1fr; gap: 0.9rem 2rem; margin: 0; }
+    .details dt { font-family: var(--font-wide); font-weight: 500; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); align-self: center; }
+    .details dd { margin: 0; font-family: var(--font-hk); font-stretch: 125%; font-weight: 500; font-size: clamp(1.15rem, 1.8vw, 1.6rem); letter-spacing: -0.01em; }
+    .details .cta-wrap { justify-self: start; }
+    .arrow-link { display: inline-flex; align-items: center; gap: 1rem; }
+    .arrow-link .lbl { font-family: var(--font-hk); font-stretch: 125%; font-weight: 500; font-size: clamp(1.1rem, 1.6vw, 1.4rem); letter-spacing: -0.01em; }
+    .arrow-link .sub { display: block; color: var(--muted); font-family: var(--font-body); font-size: 14px; letter-spacing: 0; margin-top: 3px; }
+
+    /* ─── Merch section ──────────────────────────────────────────────────
+       Section sits on the normal page background, so the 100px gap between
+       thumbnails reads as a clean separation, not a seam in a black field.
+       Each thumbnail cell stays black — that's the letterbox fill for the
+       non-square product shots (see .merch-grid .media below). */
+    /* Four equal square thumbnails. Non-square source images are shown in
+       full (object-fit: contain) rather than cropped, with the letterbox
+       bars filled solid black. */
+    /* Gap matches .photo-grid exactly (clamp(1rem, 2vw, 1.75rem)); grid itself
+       runs at 75% width, pushed to the right edge of the shell. */
+    .merch-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(1rem, 2vw, 1.75rem); width: 75%; margin-left: auto; }
+    .merch-grid figure { position: relative; }
+    .merch-grid .media { background: var(--black); border-radius: 3px; aspect-ratio: 1 / 1; overflow: hidden; }
+    .merch-grid .media img { width: 100%; height: 100%; object-fit: contain; }
+    /* Mobile: same 2x2 layout, scaled to the full column width instead of 75%/right-aligned */
+    @media (max-width: 720px) { .merch-grid { width: 100%; margin-left: 0; } }
+
+    /* ─── Impact stats ────────────────────────────────────────────────── */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+    @media (max-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 1.5rem; } }
+    .stat .n { font-family: var(--font-hk); font-stretch: 125%; font-weight: 500; font-size: clamp(3rem, 6.5vw, 5.5rem); letter-spacing: -0.02em; line-height: 1; }
+    .stat .l { margin-top: 0.6rem; color: var(--muted); font-size: 15px; max-width: 18ch; }
+
+    /* ─── Next project (no link yet — page not built) ───────────────────── */
+    .more { border-top: 1px solid var(--line); }
+    .more .more-row { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding-block: clamp(2rem, 4vw, 3rem); }
+    .more .more-t { font-family: var(--font-hk); font-stretch: 125%; font-weight: 500; font-size: clamp(1.6rem, 3.4vw, 2.8rem); letter-spacing: -0.02em; }
+    .more .more-k { font-family: var(--font-wide); font-weight: 500; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; }

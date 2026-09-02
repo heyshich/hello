@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shich — Visual Communications Designer</title>
+  <meta name="description" content="Shich (Shi Chun) — a visual communications designer with over a decade of experience designing within brand systems, building trust for brands both internally and externally. Sea, Shopee, Garena." />
+
+  <!-- Inline SVG favicon: the wordmark (completed) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 376 81.75'%3E%3Cg fill='%230E0E0E'%3E%3Cpath d='M31.36 78.87c-4.28 0-8.47-.65-12.57-1.94s-7.72-3.4-10.86-6.31c-3.14-2.92-6.38-10.28-7.93-14.79h5c1.33 4.51 3.43 8.07 6.31 10.69 2.88 2.62 6.11 4.51 9.69 5.65 3.58 1.15 7.03 1.72 10.36 1.72s6.26-.46 9.03-1.38 5.02-2.45 6.76-4.6 2.6-4.95 2.6-8.42c0-3.03-.63-5.52-1.88-7.48s-3.23-3.58-5.93-4.87-6.15-2.42-10.36-3.38l-8.75-1.99c-2.73-.59-5.3-1.37-7.7-2.33s-4.51-2.18-6.31-3.66-3.25-3.3-4.32-5.48-1.61-4.85-1.61-8.03c0-4.28 1.09-7.87 3.27-10.75s5.06-5.04 8.64-6.48 7.4-2.16 11.47-2.16c6.87 0 12.68 1.5 17.45 4.49 4.76 2.99 9.95 10.1 10.82 16.56h-5.01c-1.7-5.39-4.56-9.42-8.58-12.07s-8.99-3.99-14.9-3.99c-3.18 0-6.08.54-8.7 1.61s-4.75 2.64-6.37 4.71-2.44 4.65-2.44 7.75c0 4.36 1.33 7.63 3.99 9.8s6.61 3.86 11.85 5.04l9.42 2.22c2.95.66 5.74 1.5 8.36 2.49s4.89 2.29 6.81 3.88 3.43 3.51 4.54 5.76 1.66 5 1.66 8.25c0 4.28-1.09 7.88-3.27 10.8s-5.04 5.1-8.59 6.54-7.53 2.16-11.96 2.16Z'/%3E%3Cpath d='M277.41 78.87c-7.02 0-13-1.64-17.95-4.93s-8.73-7.79-11.35-13.51-3.93-12.28-3.93-19.66 1.31-13.94 3.93-19.66 6.41-10.23 11.35-13.51 10.93-4.93 17.95-4.93c5.83 0 10.86 1.05 15.07 3.16s7.66 4.98 10.36 8.64 5.47 9.22 6.7 15.79h-5.21c-.96-4.43-2.55-8.33-4.76-11.69s-5.13-6.02-8.75-7.98-8.09-2.94-13.4-2.94c-5.91 0-10.93 1.42-15.07 4.26s-7.27 6.74-9.42 11.69-3.21 10.67-3.21 17.17 1.07 12.13 3.21 17.11 5.28 8.9 9.42 11.74 9.16 4.26 15.07 4.26c5.32 0 9.78-.98 13.4-2.94s6.54-4.63 8.75-8.03 3.8-7.27 4.76-11.63h5.17c-.39 5.22-3.97 12.04-6.67 15.73s-6.15 6.59-10.36 8.7-9.23 3.16-15.07 3.16Z'/%3E%3Cpath d='M5.32 77.99H0V3.77h5.32v74.22Z'/%3E%3Cpath d='M0 5.32V0h376v5.32H0Z'/%3E%3Cpath d='M0 81.75v-5.32h376v5.32H0Z'/%3E%3Cg transform='translate(69.13 3.77)'%3E%3Cpath d='M161.71 74.22h-5.32V0h5.32v74.22Z'/%3E%3Cpath d='M54.06 39.77v-5.32h105v5.32h-105Z'/%3E%3Cpath d='M5.32 74.22H0V0h5.32v74.22Z'/%3E%3Cpath d='M54.06 74.22h-5.32V0h5.32v74.22Z'/%3E%3Cpath d='M2.66 39.77v-5.32h48.74v5.32H2.66Z'/%3E%3Cpath d='M258.12 74.22h-5.32V0h5.32v74.22ZM304.31 38.88h-49.52v-4.76h49.52v4.76ZM306.86 74.22h-5.32V0h5.32v74.22Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E" />
+
+  <!-- All fonts self-hosted from /fonts — no external CDN, works offline & on GitHub Pages -->
+
+  <script>
+    document.documentElement.classList.add("js");
+    // Opening logo animation plays once per browser session — gate it as early
+    // as possible (before the .intro overlay ever paints) so repeat page loads
+    // within the same tab/session never flash it.
+    try {
+      if (sessionStorage.getItem("introPlayed") === "1") {
+        document.documentElement.classList.add("intro-skip");
+      }
+    } catch (e) {}
+  </script>
+
+  <style>
+    /* ─── Self-hosted fonts (portfolio/fonts) — no CDN, offline + GitHub-Pages safe ── */
+    /* HK Grotesk Wide — display / headings */
+    @font-face { font-family: "HK Grotesk Wide"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/HKGroteskWide-Regular.otf") format("opentype"); }
+    @font-face { font-family: "HK Grotesk Wide"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/HKGroteskWide-Medium.otf") format("opentype"); }
+    @font-face { font-family: "HK Grotesk Wide"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/HKGroteskWide-SemiBold.otf") format("opentype"); }
+    @font-face { font-family: "HK Grotesk Wide"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/HKGroteskWide-Bold.otf") format("opentype"); }
+    /* Cabinet Grotesk — labels / utility */
+    @font-face { font-family: "Cabinet Grotesk"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/CabinetGrotesk-Regular.woff2") format("woff2"), url("fonts/CabinetGrotesk-Regular.woff") format("woff"); }
+    @font-face { font-family: "Cabinet Grotesk"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/CabinetGrotesk-Medium.woff2") format("woff2"), url("fonts/CabinetGrotesk-Medium.woff") format("woff"); }
+    @font-face { font-family: "Cabinet Grotesk"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/CabinetGrotesk-Bold.woff2") format("woff2"), url("fonts/CabinetGrotesk-Bold.woff") format("woff"); }
+    /* Inter (variable) — body */
+    @font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("fonts/Inter-Variable.ttf") format("truetype"); }
+    @font-face { font-family: "Inter"; font-style: italic; font-weight: 100 900; font-display: swap; src: url("fonts/Inter-Italic-Variable.ttf") format("truetype"); }
+
+    /* ─── Tokens (extracted from the Figma render) ─────────────────────── */
+    :root {
+      --bg:      #FFFFFF;   /* page — white */
+      --panel:   #E3E4DD;   /* placeholder tone */
+      --ink:     #0E0E0E;   /* headings / primary text */
+      --ink-2:   #282828;   /* secondary text */
+      --muted:   rgba(14,14,14,.58);
+      --line:    rgba(14,14,14,.16);
+      --line-2:  rgba(14,14,14,.34);
+      --chip-border: #898989; /* category-box stroke (Figma) */
+      --chip-text:   #505050; /* category-box text  (Figma) */
+      --spring:  cubic-bezier(0.22, 1, 0.36, 1);
+
+      --font-display: "Cabinet Grotesk", system-ui, sans-serif;
+      --font-wide:    "Cabinet Grotesk", system-ui, sans-serif; /* utility labels (was Hanken) */
+      --font-body:    "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --font-accent:  "Helvetica Neue", Arial, sans-serif; /* Neue Haas Grotesk Display stand-in */
+      --font-hk:      "HK Grotesk Wide", "Cabinet Grotesk", system-ui, sans-serif;
+
+      /* Figma content column = frame width − 50px margins each side.
+         Every section is auto-layout "fill container" (align STRETCH / grow)
+         up to a 1670px ceiling — content fills normally below that, then
+         centres and holds at 1670px beyond it. --content-max is the actual
+         content width; the shell's own max-width adds --pad back on so the
+         side padding never eats into that 1670px once capped. */
+      --pad: clamp(20px, 4vw, 50px);
+      --content-max: 1670px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font-family: var(--font-body); font-size: 18px; line-height: 1.5;
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    ::selection { background: rgba(14,14,14,.14); }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
+
+    .shell { width: 100%; max-width: calc(var(--content-max) + var(--pad) * 2); margin-inline: auto; padding-inline: var(--pad); }
+
+    .skip-link { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: 6px; transition: top .2s var(--spring); }
+    .skip-link:focus { top: 12px; }
+
+    /* Wide utility label (HK Grotesk Wide voice) */
+    .label {
+      font-family: var(--font-wide); font-weight: 500;
+      font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--ink-2);
+    }
+
+    /* ─── Opening logo animation (intro overlay) ─────────────────────── */
+    .intro { display: none; }
+    html.js .intro {
+      display: flex; position: fixed; inset: 0; z-index: 90;
+      align-items: center; justify-content: center;
+      background: var(--bg); padding: 0;
+      transition: opacity .45s var(--spring);
+    }
+    .intro.done { opacity: 0; pointer-events: none; }
+    /* Already played this session — skip it entirely, no flash */
+    html.intro-skip .intro { display: none !important; }
+    .intro-logo { width: 75vw; }
+    @media (max-width: 640px) { .intro-logo { width: 90vw; } }
+    .intro-logo svg { width: 100%; height: auto; display: block; overflow: hidden; }
+    html.js.intro-lock, html.js.intro-lock body { overflow: hidden; }
+
+    @keyframes introStemUp { from { transform: translateY(82px); } to { transform: translateY(0); } }
+    @keyframes introClipClose { to { y: 40.875px; height: 0px; } }
+    @keyframes introBarDown { to { transform: translateY(38.2px); } }
+    @keyframes introBarUp { to { transform: translateY(-38.2px); } }
+    @keyframes introBarShrink { to { transform: scaleX(0); } }
+    .intro-stem { transform: translateY(82px); animation: introStemUp .55s var(--spring) both; }
+    .intro-clip { animation: introClipClose .9s cubic-bezier(0.65,0,0.35,1) both; animation-delay: 2.7s; }
+    /* Crossbars slide to centre (2.7–3.6s), then shorten toward the middle until gone (3.6–4.1s) */
+    .intro-bar-move-top { animation: introBarDown .9s cubic-bezier(0.65,0,0.35,1) both; animation-delay: 2.7s; }
+    .intro-bar-move-bottom { animation: introBarUp .9s cubic-bezier(0.65,0,0.35,1) both; animation-delay: 2.7s; }
+    .intro-bar-shrink { transform-box: fill-box; transform-origin: center; animation: introBarShrink .5s cubic-bezier(0.65,0,0.35,1) both; animation-delay: 3.6s; }
+
+    /* ─── Header ─────────────────────────────────────────────────────── */
+    header {
+      position: sticky; top: 0; z-index: 40;
+      background: color-mix(in srgb, var(--bg) 86%, transparent);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid transparent; transition: border-color .3s var(--spring);
+    }
+    header.scrolled { border-bottom-color: var(--line); }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding-block: 20px; }
+    .nav-links { display: flex; align-items: center; gap: clamp(20px, 4vw, 40px); }
+    .nav-links a { font-family: var(--font-wide); font-size: 15px; font-weight: 500; letter-spacing: 0.02em; color: var(--ink-2); transition: color .2s var(--spring); position: relative; }
+    .nav-links a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -3px; height: 1.5px; background: var(--ink); transition: right .3s var(--spring); }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover::after { right: 0; }
+
+    /* Interactive navbar logo (hover completes the wordmark) */
+    .logo-link { display: inline-flex; color: var(--ink); }
+    .logo-link svg { height: clamp(26px, 2.6vw, 34px); width: auto; display: block; overflow: hidden; }
+    .logo-piece { transform: translateY(82px); transition: transform .55s var(--spring); }
+    .logo-link:hover .logo-piece, .logo-link:focus-visible .logo-piece { transform: translateY(0); }
+
+    /* ─── Hero ───────────────────────────────────────────────────────── */
+    /* Figma: hero text frame is grow:1 (fill container), 88px / 105px line-height.
+       No max-width — the statement fills the column and keeps filling past 1440. */
+    @keyframes heroFadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .hero { padding-top: clamp(3.75rem, 15vw, 210px); padding-bottom: clamp(6rem, 14vw, 200px); aspect-ratio: 3840 / 1000; max-height: 1000px; display: flex; align-items: center; background: #b09fa9 url('assets/Header-Photo2.jpg') center / cover no-repeat; opacity: 0; animation: heroFadeIn 1.2s var(--spring) .3s both; }
+    .hero h1 {
+      font-family: var(--font-hk); font-stretch: 125%; font-weight: 400;
+      font-size: clamp(1.6rem, 3.3vw, 64px); line-height: 1.14;
+      letter-spacing: -0.02em; margin: 0; max-width: 1100px; color: var(--ink);
+      position: relative;
+    }
+    .hero h1 b { font-weight: 700; color: var(--ink); }
+    .hero .em { font-family: var(--font-accent); font-style: normal; padding: 0 0.06em; }
+    .hero-ul {
+      position: absolute; background: #fff; z-index: 0;
+      transform: scaleX(0); transform-origin: left; pointer-events: none;
+      transition: transform .8s var(--spring);
+    }
+    .hero h1 .word { position: relative; z-index: 1; }
+    .hero h1 .word.ul-trigger { cursor: default; }
+    .hero h1.ul-active .hero-ul { transform: scaleX(1); }
+    /* Word-stagger reveal */
+    .word { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 0.08em; }
+    html.js .word > span { display: inline-block; will-change: transform; transform: translateY(110%); }
+    @keyframes wordIn { from { transform: translateY(110%); } to { transform: translateY(0); } }
+    body.intro-done .word > span { animation: wordIn .6s var(--spring) both; animation-delay: calc(var(--i) * 50ms + 0.4s); }
+
+    /* ─── Section scaffold ───────────────────────────────────────────── */
+    /* Adjacent sections sum to the Figma's ~200px inter-section gaps */
+    section { padding-block: clamp(3rem, 7vw, 104px); }
+    .sec-head { display: flex; align-items: center; gap: clamp(14px, 1.6vw, 22px); margin-bottom: clamp(2rem, 4vw, 3.25rem); }
+    .sec-mark { flex: none; width: clamp(34px, 4vw, 50px); height: clamp(34px, 4vw, 50px); color: var(--ink); }
+    .sec-mark svg { width: 100%; height: 100%; display: block; }
+    .sec-title { font-family: var(--font-hk); font-stretch: 125%; font-weight: 500; font-size: clamp(2rem, 4.6vw, 3.5rem); line-height: 1.02; letter-spacing: -0.01em; margin: 0; }
+    .sec-title .sub { display: block; font-family: var(--font-wide); font-weight: 500; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
+
+    /* Reveal on scroll */
+    html.js .reveal { opacity: 0; transform: translateY(24px); }
+    html.js .reveal.in { opacity: 1; transform: none; transition: opacity .7s var(--spring), transform .8s var(--spring); }
+
+    /* ─── Boxed diagonal arrow (+ idle & hover motion) ───────────────── */
+    .arrow-box {
+      position: relative; flex: none; display: grid; place-items: center; overflow: hidden;
+      width: 52px; height: 52px; border: 1.5px solid var(--line-2); border-radius: 999px;
+      color: var(--ink); transition: background .3s var(--spring), color .3s var(--spring), border-color .3s var(--spring);
+    }
+    .arrow-box svg { grid-area: 1 / 1; width: 40%; height: 40%; }
+    .arrow-lead { animation: arrowBob 3s ease-in-out infinite; }
+    @keyframes arrowBob { 0%,100% { transform: translate(0,0); } 50% { transform: translate(2px,-2px); } }
+    .arrow-trail { transform: translate(-26px, 26px); opacity: 0; }
+    .arrow-hit:hover .arrow-box, a:hover > .arrow-box, .feat:hover .arrow-box, .proj:hover .arrow-box, .email:hover .arrow-box {
+      background: var(--ink); color: var(--bg); border-color: var(--ink);
+    }
+    .arrow-hit:hover .arrow-lead, .feat:hover .arrow-lead, .proj:hover .arrow-lead, .email:hover .arrow-lead { animation: arrowLeave .5s var(--spring) forwards; }
+    .arrow-hit:hover .arrow-trail, .feat:hover .arrow-trail, .proj:hover .arrow-trail, .email:hover .arrow-trail { animation: arrowEnter .5s var(--spring) forwards; }
+    @keyframes arrowLeave { to { transform: translate(26px, -26px); opacity: 0; } }
+    @keyframes arrowEnter { 55% { opacity: 1; } to { transform: translate(0,0); opacity: 1; } }
+
+    /* ─── Square boxed arrow for case studies (Box.svg + Arrow.svg),
+           animated the same way as the circle arrow but horizontally ───── */
+    .arrow-sq {
+      position: relative; flex: none; display: grid; place-items: center; overflow: hidden;
+      width: 48px; height: 48px; border: 2px solid var(--ink); border-radius: 0;
+      color: var(--ink); transition: background .3s var(--spring), color .3s var(--spring), border-color .3s var(--spring);
+    }
+    .proj-lead .arrow-sq { width: 54px; height: 54px; }
+    /* Fullbox.svg look: the arrow fills the entire box, edge to edge */
+    .arrow-sq svg { grid-area: 1 / 1; width: 100%; height: 100%; padding: 4px; }
+    .arrow-sq .arrow-lead { animation: arrowBobX 3s ease-in-out infinite; }
+    .arrow-sq .arrow-trail { transform: translateX(-118%); opacity: 0; }
+    .proj:hover .arrow-sq { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .proj:hover .arrow-sq .arrow-lead { animation: arrowLeaveFull .5s var(--spring) forwards; }
+    .proj:hover .arrow-sq .arrow-trail { animation: arrowEnterFull .5s var(--spring) forwards; }
+    @keyframes arrowBobX { 0%,100% { transform: translateX(0); } 50% { transform: translateX(3px); } }
+    @keyframes arrowLeaveX { to { transform: translateX(32px); opacity: 0; } }
+    @keyframes arrowEnterX { 55% { opacity: 1; } to { transform: translateX(0); opacity: 1; } }
+    @keyframes arrowLeaveFull { to { transform: translateX(118%); opacity: 0; } }
+    @keyframes arrowEnterFull { 55% { opacity: 1; } to { transform: translateX(0); opacity: 1; } }
+
+    /* ─── Category boxes (Figma: 1px #898989 border, square corners,
+           5×12 padding, #505050) — now UPPERCASE, right-aligned on the
+           title line ─────────────────────────────────────────────────── */
+    .chips { display: flex; flex-wrap: wrap; gap: 8px 10px; margin: 0; justify-content: flex-end; }
+    .chip {
+      font-family: var(--font-body); font-weight: 400; font-size: 12px; line-height: 1;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--chip-text); border: 1px solid var(--chip-border);
+      padding: 6px 11px; white-space: nowrap;
+    }
+
+    /* ─── Selected Work (one section; all projects filed here) ────────── */
+    .work { display: flex; flex-direction: column; gap: clamp(4rem, 8vw, 8rem); }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(4rem, 6.5vw, 7rem) clamp(4rem, 6.5vw, 8.125rem); }
+    @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+
+    .proj { display: block; }
+    .proj-media { position: relative; border-radius: 3px; overflow: hidden; aspect-ratio: 4 / 3;
+      background: var(--panel); border: 1px solid var(--line); display: grid; place-items: center;
+      transition: border-color .3s var(--spring); }
+    .proj-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--spring); }
+    .proj:hover .proj-media img { transform: scale(1.02); }
+    .proj:hover .proj-media { border-color: var(--line-2); }
+    /* Lead card = the real KV, full width, wide aspect (Figma featured block) */
+    .proj-lead .proj-media { aspect-ratio: 2158 / 650; background: #050505; border: none; }
+    .proj-ph { position: absolute; top: 14px; right: 16px; font-family: var(--font-wide); font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--line-2); border-radius: 999px; padding: 3px 9px; }
+    .proj-glyph { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.3rem, 2.4vw, 2rem); letter-spacing: -0.02em; color: var(--ink); opacity: .9; text-align: center; padding: 0 1.5rem; }
+    /* Title + arrow on the left; categories right-aligned on the same line,
+       sitting just under the thumbnail's bottom-right corner. */
+    .proj-body { margin-top: clamp(1rem, 1.5vw, 1.4rem); }
+    .proj-row { display: flex; align-items: center; justify-content: space-between; gap: 0.9rem 1.75rem; flex-wrap: wrap; }
+    .proj-head { display: flex; align-items: center; gap: clamp(0.85rem, 1.4vw, 1.2rem); min-width: 0; }
+    .proj-title { font-family: var(--font-hk); font-stretch: 125%; font-weight: 500; letter-spacing: -0.01em; line-height: 1.04; margin: 0;
+      font-size: clamp(1.25rem, 2vw, 1.75rem); }
+    .proj-lead .proj-title { font-size: clamp(1.5rem, 2.8vw, 2.4rem); }
+    @media (max-width: 560px) { .proj-row { align-items: flex-start; } .chips { justify-content: flex-start; } }
+
+    /* ─── Contact ────────────────────────────────────────────────────── */
+    .contact { padding-top: clamp(5rem, 13vw, 220px); padding-bottom: calc(clamp(5rem, 13vw, 220px) + 100px); }
+    .contact h2 { font-family: var(--font-hk); font-stretch: 125%; font-weight: 500; font-size: clamp(2.2rem, 6vw, 84px); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 clamp(2.5rem, 6vw, 4.5rem); max-width: 14em; }
+    .email {
+      display: inline-flex; align-items: stretch; gap: 0; cursor: pointer;
+      padding: 0; /* strip default <button> padding so the arrow box fills its square */
+      border: 2px solid var(--ink); border-radius: 0; overflow: hidden;
+      background: transparent; color: var(--ink); font-family: var(--font-wide);
+      transition: transform .18s var(--spring);
+    }
+    .email:hover { transform: translateY(-2px); }
+    .email .addr { display: flex; align-items: center; font-size: clamp(1.4rem, 4.5vw, 3rem); font-weight: 500; letter-spacing: 0.005em; padding: clamp(1rem, 2.4vw, 1.7rem) clamp(1.5rem, 4vw, 3rem); white-space: nowrap; }
+    /* Square Box + Arrow cap, animated like the case-study arrows */
+    .email .arrow-box { border: none; border-left: 2px solid var(--ink); border-radius: 0; width: clamp(72px, 10vw, 118px); height: auto; align-self: stretch; }
+    /* Arrow stretches to fill the whole cell, edge to edge (like Fullbox.svg);
+       the SVGs carry preserveAspectRatio="none" so they fill both dimensions. */
+    .email .arrow-box svg { width: 100%; height: 100%; padding: 1px; }
+    .email .arrow-box svg line, .email .arrow-box svg polyline { stroke-width: 1.2px; } /* keep weight even with the big cell */
+    .email .arrow-lead { animation: none; }
+    .email .arrow-trail { transform: translateX(-118%); }
+    .email:hover .arrow-box { background: var(--ink); color: var(--bg); }
+    .email:hover .arrow-lead { animation: arrowLeaveFull .5s var(--spring) forwards; }
+    .email:hover .arrow-trail { animation: arrowEnterFull .5s var(--spring) forwards; }
+    .email.copied { border-color: var(--ink); }
+    .email.copied .arrow-box { background: var(--ink); color: var(--bg); }
+    .contact-note { margin-top: 1.5rem; color: var(--muted); font-size: 15px; }
+    .contact-note a { color: var(--ink-2); text-decoration: underline; text-underline-offset: 3px; }
+    .contact-note a:hover { color: var(--ink); }
+
+    /* ─── Footer ─────────────────────────────────────────────────────── */
+    footer { border-top: 1px solid var(--line); }
+    .foot { display: flex; align-items: center; gap: 1.5rem; padding-block: 2.25rem; flex-wrap: wrap; }
+    .foot .logo-foot { color: var(--ink); }
+    .foot .logo-foot svg { height: 22px; width: auto; display: block; }
+    .foot p { margin: 0; color: var(--muted); font-size: 14px; }
+    .foot .spacer { flex: 1; }
+    .foot .social { width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 999px; display: grid; place-items: center; color: var(--ink-2); transition: background .25s var(--spring), color .25s var(--spring), border-color .25s var(--spring); }
+    .foot .social:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+    /* ─── Responsive collapse (Figma is a single 1440 frame; these keep its
+           proportions as the column narrows) ──────────────────────────── */
+    @media (max-width: 900px) {
+      .feat-meta { align-items: flex-start; }
+    }
+    @media (max-width: 640px) {
+      .hero { padding-top: clamp(2.5rem, 20vw, 5rem); background-position: 60% center; }
+      .hero h1 { max-width: 75%; }
+      .sec-head { gap: 11px; }
+      .sec-mark { width: 18px; height: 18px; }
+      .feat-meta { flex-direction: column; align-items: flex-start; gap: 1.1rem; }
+      .proj-meta { gap: 1rem; }
+      .email .addr { font-size: clamp(0.95rem, 5vw, 1.25rem); }
+      .foot { gap: 1rem 1.25rem; }
+      .foot p:last-of-type { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+      html.js .word > span, html.js body:not(.intro-done) .word > span { opacity: 1 !important; transform: none !important; }
+      html.js .reveal { opacity: 1; transform: none; }
+      .arrow-trail { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#work" class="skip-link">Skip to work</a>
+
+  <!-- ─── Opening logo animation ─────────────────────────────────────── -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-logo">
+      <svg viewBox="0 0 376 81.75">
+        <defs>
+          <clipPath id="introLogoClip">
+            <rect class="intro-clip" x="0" y="0" width="376" height="81.75"></rect>
+          </clipPath>
+        </defs>
+        <g class="intro-outro" fill="#0E0E0E">
+          <g clip-path="url(#introLogoClip)">
+            <path d="M31.36,78.87c-4.28,0-8.47-.65-12.57-1.94s-7.72-3.4-10.86-6.31c-3.14-2.92-6.38-10.28-7.93-14.79h5c1.33,4.51,3.43,8.07,6.31,10.69,2.88,2.62,6.11,4.51,9.69,5.65,3.58,1.15,7.03,1.72,10.36,1.72s6.26-.46,9.03-1.38c2.77-.92,5.02-2.45,6.76-4.6,1.73-2.14,2.6-4.95,2.6-8.42,0-3.03-.63-5.52-1.88-7.48-1.26-1.96-3.23-3.58-5.93-4.87-2.7-1.29-6.15-2.42-10.36-3.38l-8.75-1.99c-2.73-.59-5.3-1.37-7.7-2.33-2.4-.96-4.51-2.18-6.31-3.66-1.81-1.48-3.25-3.3-4.32-5.48-1.07-2.18-1.61-4.85-1.61-8.03,0-4.28,1.09-7.87,3.27-10.75,2.18-2.88,5.06-5.04,8.64-6.48,3.58-1.44,7.4-2.16,11.47-2.16,6.87,0,12.68,1.5,17.45,4.49,4.76,2.99,9.95,10.1,10.82,16.56h-5.01c-1.7-5.39-4.56-9.42-8.58-12.07-4.03-2.66-8.99-3.99-14.9-3.99-3.18,0-6.08.54-8.7,1.61-2.62,1.07-4.75,2.64-6.37,4.71-1.63,2.07-2.44,4.65-2.44,7.75,0,4.36,1.33,7.63,3.99,9.8,2.66,2.18,6.61,3.86,11.85,5.04l9.42,2.22c2.95.66,5.74,1.5,8.36,2.49,2.62,1,4.89,2.29,6.81,3.88,1.92,1.59,3.43,3.51,4.54,5.76,1.11,2.25,1.66,5,1.66,8.25,0,4.28-1.09,7.88-3.27,10.8-2.18,2.92-5.04,5.1-8.59,6.54s-7.53,2.16-11.96,2.16Z"></path>
+            <path d="M277.41,78.87c-7.02,0-13-1.64-17.95-4.93-4.95-3.29-8.73-7.79-11.35-13.51-2.62-5.72-3.93-12.28-3.93-19.66s1.31-13.94,3.93-19.66c2.62-5.72,6.41-10.23,11.35-13.51,4.95-3.29,10.93-4.93,17.95-4.93,5.83,0,10.86,1.05,15.07,3.16s7.66,4.98,10.36,8.64c2.7,3.66,5.47,9.22,6.7,15.79h-5.21c-.96-4.43-2.55-8.33-4.76-11.69-2.22-3.36-5.13-6.02-8.75-7.98-3.62-1.96-8.09-2.94-13.4-2.94-5.91,0-10.93,1.42-15.07,4.26-4.14,2.84-7.27,6.74-9.42,11.69-2.14,4.95-3.21,10.67-3.21,17.17s1.07,12.13,3.21,17.11c2.14,4.98,5.28,8.9,9.42,11.74,4.13,2.84,9.16,4.26,15.07,4.26,5.32,0,9.78-.98,13.4-2.94,3.62-1.96,6.54-4.63,8.75-8.03,2.22-3.4,3.8-7.27,4.76-11.63h5.17c-.39,5.22-3.97,12.04-6.67,15.73-2.7,3.69-6.15,6.59-10.36,8.7s-9.23,3.16-15.07,3.16Z"></path>
+            <path d="M5.32,77.99H0V3.77h5.32v74.22Z"></path>
+            <g transform="translate(69.13,3.77)">
+              <path class="intro-stem" style="animation-delay:.40s"  d="M5.32,74.22H0V0h5.32v74.22Z"></path>
+              <path class="intro-stem" style="animation-delay:.58s"  d="M2.66,39.77v-5.32s48.74,0,48.74,0v5.32s-48.74,0-48.74,0Z"></path>
+              <path class="intro-stem" style="animation-delay:.76s"  d="M54.06,74.22h-5.32V0h5.32v74.22Z"></path>
+              <path class="intro-stem" style="animation-delay:.94s"  d="M54.06,39.77v-5.32s105,0,105,0v5.32s-105,0-105,0Z"></path>
+              <path class="intro-stem" style="animation-delay:1.11s" d="M161.71,74.22h-5.32V0h5.32v74.22Z"></path>
+              <path class="intro-stem" style="animation-delay:1.29s" d="M258.12,74.22h-5.32V0h5.32v74.22Z"></path>
+              <path class="intro-stem" style="animation-delay:1.47s" d="M304.31,38.88h-49.52v-4.76h49.52v4.76Z"></path>
+              <path class="intro-stem" style="animation-delay:1.65s" d="M306.86,74.22h-5.32V0h5.32v74.22Z"></path>
+            </g>
+          </g>
+          <g class="intro-bar-move-top"><path class="intro-bar-shrink" d="M0,5.32V0s376,0,376,0v5.32S0,5.32,0,5.32Z"></path></g>
+          <g class="intro-bar-move-bottom"><path class="intro-bar-shrink" d="M0,81.75v-5.32s376,0,376,0v5.32S0,81.75,0,81.75Z"></path></g>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ─── Header ─────────────────────────────────────────────────────── -->
+  <header id="siteHeader">
+    <div class="shell nav">
+      <a href="#top" class="logo-link" aria-label="Shich — home">
+        <svg viewBox="0 0 376 81.75" role="img" aria-hidden="true">
+          <g fill="currentColor">
+            <path d="M31.36,78.87c-4.28,0-8.47-.65-12.57-1.94s-7.72-3.4-10.86-6.31c-3.14-2.92-6.38-10.28-7.93-14.79h5c1.33,4.51,3.43,8.07,6.31,10.69,2.88,2.62,6.11,4.51,9.69,5.65,3.58,1.15,7.03,1.72,10.36,1.72s6.26-.46,9.03-1.38c2.77-.92,5.02-2.45,6.76-4.6,1.73-2.14,2.6-4.95,2.6-8.42,0-3.03-.63-5.52-1.88-7.48-1.26-1.96-3.23-3.58-5.93-4.87-2.7-1.29-6.15-2.42-10.36-3.38l-8.75-1.99c-2.73-.59-5.3-1.37-7.7-2.33-2.4-.96-4.51-2.18-6.31-3.66-1.81-1.48-3.25-3.3-4.32-5.48-1.07-2.18-1.61-4.85-1.61-8.03,0-4.28,1.09-7.87,3.27-10.75,2.18-2.88,5.06-5.04,8.64-6.48,3.58-1.44,7.4-2.16,11.47-2.16,6.87,0,12.68,1.5,17.45,4.49,4.76,2.99,9.95,10.1,10.82,16.56h-5.01c-1.7-5.39-4.56-9.42-8.58-12.07-4.03-2.66-8.99-3.99-14.9-3.99-3.18,0-6.08.54-8.7,1.61-2.62,1.07-4.75,2.64-6.37,4.71-1.63,2.07-2.44,4.65-2.44,7.75,0,4.36,1.33,7.63,3.99,9.8,2.66,2.18,6.61,3.86,11.85,5.04l9.42,2.22c2.95.66,5.74,1.5,8.36,2.49,2.62,1,4.89,2.29,6.81,3.88,1.92,1.59,3.43,3.51,4.54,5.76,1.11,2.25,1.66,5,1.66,8.25,0,4.28-1.09,7.88-3.27,10.8-2.18,2.92-5.04,5.1-8.59,6.54s-7.53,2.16-11.96,2.16Z"></path>
+            <path d="M277.41,78.87c-7.02,0-13-1.64-17.95-4.93-4.95-3.29-8.73-7.79-11.35-13.51-2.62-5.72-3.93-12.28-3.93-19.66s1.31-13.94,3.93-19.66c2.62-5.72,6.41-10.23,11.35-13.51,4.95-3.29,10.93-4.93,17.95-4.93,5.83,0,10.86,1.05,15.07,3.16s7.66,4.98,10.36,8.64c2.7,3.66,5.47,9.22,6.7,15.79h-5.21c-.96-4.43-2.55-8.33-4.76-11.69-2.22-3.36-5.13-6.02-8.75-7.98-3.62-1.96-8.09-2.94-13.4-2.94-5.91,0-10.93,1.42-15.07,4.26-4.14,2.84-7.27,6.74-9.42,11.69-2.14,4.95-3.21,10.67-3.21,17.17s1.07,12.13,3.21,17.11c2.14,4.98,5.28,8.9,9.42,11.74,4.13,2.84,9.16,4.26,15.07,4.26,5.32,0,9.78-.98,13.4-2.94,3.62-1.96,6.54-4.63,8.75-8.03,2.22-3.4,3.8-7.27,4.76-11.63h5.17c-.39,5.22-3.97,12.04-6.67,15.73-2.7,3.69-6.15,6.59-10.36,8.7s-9.23,3.16-15.07,3.16Z"></path>
+            <path d="M5.32,77.99H0V3.77h5.32v74.22Z"></path>
+            <path d="M0,5.32V0s376,0,376,0v5.32S0,5.32,0,5.32Z"></path>
+            <path d="M0,81.75v-5.32s376,0,376,0v5.32S0,81.75,0,81.75Z"></path>
+          </g>
+          <g class="logo-piece" fill="currentColor">
+            <g transform="translate(69.13,3.77)">
+              <path d="M161.71,74.22h-5.32V0h5.32v74.22Z"></path>
+              <path d="M54.06,39.77v-5.32s105,0,105,0v5.32s-105,0-105,0Z"></path>
+              <path d="M5.32,74.22H0V0h5.32v74.22Z"></path>
+              <path d="M54.06,74.22h-5.32V0h5.32v74.22Z"></path>
+              <path d="M2.66,39.77v-5.32s48.74,0,48.74,0v5.32s-48.74,0-48.74,0Z"></path>
+              <path d="M258.12,74.22h-5.32V0h5.32v74.22ZM304.31,38.88h-49.52v-4.76h49.52v4.76ZM306.86,74.22h-5.32V0h5.32v74.22Z"></path>
+            </g>
+          </g>
+        </svg>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="shell">
+        <h1 id="heroStatement">Hey, I'm <b>Shich</b> <span class="em">—</span> a visual communications designer with over a decade of experience designing within brand systems, building trust for brands both internally and externally.</h1>
+      </div>
+    </section>
+
+    <!-- Selected Work — every project filed under one section -->
+    <section id="work" class="shell">
+      <div class="sec-head reveal">
+        <span class="sec-mark" aria-hidden="true">
+          <svg viewBox="0 0 52 52" fill="none"><rect x="1" y=".9" width="50.1" height="50.1" stroke="currentColor" stroke-width="2" stroke-miterlimit="10"/><line x1=".9" y1="26" x2="51.1" y2="26" stroke="currentColor" stroke-width="2" stroke-miterlimit="10"/><polyline points="26 51.1 51.1 26 26 .9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <h2 class="sec-title">Selected Work</h2>
+      </div>
+
+      <div class="work">
+        <!-- Lead: the one project with a real key visual -->
+        <a class="proj proj-lead reveal" href="sea-openai-hackathon.html" aria-label="Sea × OpenAI Hackathon">
+          <div class="proj-media"><img src="assets/seaxopenai-kv-wide.png" alt="Regional Codex Hackathon Singapore — Sea x OpenAI key visual: concentric coloured light-trails on black with the Sea and OpenAI co-brand lockup" loading="eager" /></div>
+          <div class="proj-body">
+            <div class="proj-row">
+              <div class="proj-head">
+                <h3 class="proj-title">Sea x OpenAI Hackathon</h3>
+                <span class="arrow-sq" aria-hidden="true">
+                <svg class="arrow-lead" viewBox="0 0 52 52" fill="none"><line x1=".9" y1="26" x2="51.1" y2="26" stroke="currentColor" stroke-width="2.4" stroke-miterlimit="10"/><polyline points="26 51.1 51.1 26 26 .9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg class="arrow-trail" viewBox="0 0 52 52" fill="none"><line x1=".9" y1="26" x2="51.1" y2="26" stroke="currentColor" stroke-width="2.4" stroke-miterlimit="10"/><polyline points="26 51.1 51.1 26 26 .9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              </div>
+              <div class="chips"><span class="chip">External</span><span class="chip">Employer Branding</span></div>
+            </div>
+          </div>
+        </a>
+
+        <div class="grid">
+        <a class="proj reveal" href="sea-global-map.html" aria-label="Sea Global MAP">
+          <div class="proj-media"><img src="assets/MAP Thumbnail.png" alt="Sea Global Management Associate Program key visual — six coloured waves with a white ring at centre" loading="lazy" /></div>
+          <div class="proj-body">
+            <div class="proj-row">
+              <div class="proj-head">
+                <h3 class="proj-title">Sea Global MAP</h3>
+                <span class="arrow-sq" aria-hidden="true">
+                <svg class="arrow-lead" viewBox="0 0 52 52" fill="none"><line x1=".9" y1="26" x2="51.1" y2="26" stroke="currentColor" stroke-width="2.4" stroke-miterlimit="10"/><polyline points="26 51.1 51.1 26 26 .9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg class="arrow-trail" viewBox="0 0 52 52" fill="none"><line x1=".9" y1="26" x2="51.1" y2="26" stroke="currentColor" stroke-width="2.4" stroke-miterlimit="10"/><polyline points="26 51.1 51.1 26 26 .9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              </div>
+              <div class="chips"><span class="chip">External</span><span class="chip">Employer Branding</span></div>
+            </div>
+          </div>
+        </a>
+
+        <a class="proj reveal" href="shopee-campus-recruitment.html" aria-label="Shopee Campus Recruitment">
+          <div class="proj-media"><img src="assets/Recruitment Thumbnail.png" alt="Shopee Campus Recruitment key visual — Shopee, Campus, Recruitment lockup in a browser-chrome box on an orange field" loading="lazy" /></div>
+          <div class="proj-body">
+            <div class="proj-row">
+              <div class="proj-head">
+                <h3 class="proj-title">Shopee Campus Recruitment</h3>
+                <span class="arrow-sq" aria-hidden="true">
+                <svg class="arrow-lead" viewBox="0 0 52 52" fill="none"><line x1=".9" y1="26" x2="51.1" y2="26" stroke="currentColor" stroke-width="2.4" stroke-miterlimit="10"/><polyline points="26 51.1 51.1 26 26 .9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg class="arrow-trail" viewBox="0 0 52 52" fill="none"><line x1=".9" y1="26" x2="51.1" y2="26" stroke="currentColor" stroke-width="2.4" stroke-miterlimit="10"/><polyline points="26 51.1 51.1 26 26 .9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              </div>
+              <div class="chips"><span class="chip">External</span><span class="chip">Employer Branding</span></div>
+            </div>
+          </div>
+        </a>
+
+        <a class="proj reveal" href="shopee-serves.html" aria-label="Shopee Serves">
+          <div class="proj-media"><img src="assets/shopeeserves/Shopee Serves Thumbnail.png" alt="Shopee Serves key visual — Shopee Serves wordmark centred among spinning, rolling accent shapes on white" loading="lazy" /></div>
+          <div class="proj-body">
+            <div class="proj-row">
+              <div class="proj-head">
+                <h3 class="proj-title">Shopee Serves</h3>
+                <span class="arrow-sq" aria-hidden="true">
+                <svg class="arrow-lead" viewBox="0 0 52 52" fill="none"><line x1=".9" y1="26" x2="51.1" y2="26" stroke="currentColor" stroke-width="2.4" stroke-miterlimit="10"/><polyline points="26 51.1 51.1 26 26 .9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg class="arrow-trail" viewBox="0 0 52 52" fill="none"><line x1=".9" y1="26" x2="51.1" y2="26" stroke="currentColor" stroke-width="2.4" stroke-miterlimit="10"/><polyline points="26 51.1 51.1 26 26 .9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              </div>
+              <div class="chips"><span class="chip">External</span><span class="chip">Editorial</span></div>
+            </div>
+          </div>
+        </a>
+
+        <a class="proj reveal" href="culture-at-shopee.html" aria-label="Culture @ Shopee">
+          <div class="proj-media"><img src="assets/shopeeserves/Culture Thumbnail.png" alt="Culture @ Shopee thumbnail" loading="lazy" /></div>
+          <div class="proj-body">
+            <div class="proj-row">
+              <div class="proj-head">
+                <h3 class="proj-title">Culture @ Shopee</h3>
+                <span class="arrow-sq" aria-hidden="true">
+                <svg class="arrow-lead" viewBox="0 0 52 52" fill="none"><line x1=".9" y1="26" x2="51.1" y2="26" stroke="currentColor" stroke-width="2.4" stroke-miterlimit="10"/><polyline points="26 51.1 51.1 26 26 .9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg class="arrow-trail" viewBox="0 0 52 52" fill="none"><line x1=".9" y1="26" x2="51.1" y2="26" stroke="currentColor" stroke-width="2.4" stroke-miterlimit="10"/><polyline points="26 51.1 51.1 26 26 .9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              </div>
+              <div class="chips"><span class="chip">Internal</span><span class="chip">Employer Branding</span></div>
+            </div>
+          </div>
+        </a>
+
+        <a class="proj reveal" href="shopee-regional-marketing-campaigns.html" aria-label="Shopee Regional Marketing Campaigns">
+          <div class="proj-media"><img src="assets/Campaigns Thumbnail.png" alt="Shopee Regional Marketing Campaigns" loading="lazy" /></div>
+          <div class="proj-body">
+            <div class="proj-row">
+              <div class="proj-head">
+                <h3 class="proj-title">Shopee Regional Marketing Campaigns</h3>
+                <span class="arrow-sq" aria-hidden="true">
+                <svg class="arrow-lead" viewBox="0 0 52 52" fill="none"><line x1=".9" y1="26" x2="51.1" y2="26" stroke="currentColor" stroke-width="2.4" stroke-miterlimit="10"/><polyline points="26 51.1 51.1 26 26 .9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg class="arrow-trail" viewBox="0 0 52 52" fill="none"><line x1=".9" y1="26" x2="51.1" y2="26" stroke="currentColor" stroke-width="2.4" stroke-miterlimit="10"/><polyline points="26 51.1 51.1 26 26 .9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              </div>
+              <div class="chips"><span class="chip">External</span><span class="chip">Marketing</span></div>
+            </div>
+          </div>
+        </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact shell">
+      <h2 class="reveal">Ready to build something together?</h2>
+      <button id="emailBtn" type="button" class="email reveal" aria-label="Copy email address hello@heyshich.com">
+        <span class="addr">hello@heyshich.com</span>
+        <span class="arrow-box" aria-hidden="true">
+          <svg class="arrow-lead" viewBox="0 0 52 52" fill="none" preserveAspectRatio="none"><line x1=".9" y1="26" x2="51.1" y2="26" stroke="currentColor" stroke-width="2.4" stroke-miterlimit="10"/><polyline points="26 51.1 51.1 26 26 .9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="arrow-trail" viewBox="0 0 52 52" fill="none" preserveAspectRatio="none"><line x1=".9" y1="26" x2="51.1" y2="26" stroke="currentColor" stroke-width="2.4" stroke-miterlimit="10"/><polyline points="26 51.1 51.1 26 26 .9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </button>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="shell foot">
+      <span class="logo-foot" aria-hidden="true">
+        <svg viewBox="0 0 376 81.75">
+          <g fill="currentColor">
+            <path d="M31.36,78.87c-4.28,0-8.47-.65-12.57-1.94s-7.72-3.4-10.86-6.31c-3.14-2.92-6.38-10.28-7.93-14.79h5c1.33,4.51,3.43,8.07,6.31,10.69,2.88,2.62,6.11,4.51,9.69,5.65,3.58,1.15,7.03,1.72,10.36,1.72s6.26-.46,9.03-1.38c2.77-.92,5.02-2.45,6.76-4.6,1.73-2.14,2.6-4.95,2.6-8.42,0-3.03-.63-5.52-1.88-7.48-1.26-1.96-3.23-3.58-5.93-4.87-2.7-1.29-6.15-2.42-10.36-3.38l-8.75-1.99c-2.73-.59-5.3-1.37-7.7-2.33-2.4-.96-4.51-2.18-6.31-3.66-1.81-1.48-3.25-3.3-4.32-5.48-1.07-2.18-1.61-4.85-1.61-8.03,0-4.28,1.09-7.87,3.27-10.75,2.18-2.88,5.06-5.04,8.64-6.48,3.58-1.44,7.4-2.16,11.47-2.16,6.87,0,12.68,1.5,17.45,4.49,4.76,2.99,9.95,10.1,10.82,16.56h-5.01c-1.7-5.39-4.56-9.42-8.58-12.07-4.03-2.66-8.99-3.99-14.9-3.99-3.18,0-6.08.54-8.7,1.61-2.62,1.07-4.75,2.64-6.37,4.71-1.63,2.07-2.44,4.65-2.44,7.75,0,4.36,1.33,7.63,3.99,9.8,2.66,2.18,6.61,3.86,11.85,5.04l9.42,2.22c2.95.66,5.74,1.5,8.36,2.49,2.62,1,4.89,2.29,6.81,3.88,1.92,1.59,3.43,3.51,4.54,5.76,1.11,2.25,1.66,5,1.66,8.25,0,4.28-1.09,7.88-3.27,10.8-2.18,2.92-5.04,5.1-8.59,6.54s-7.53,2.16-11.96,2.16Z"></path>
+            <path d="M277.41,78.87c-7.02,0-13-1.64-17.95-4.93-4.95-3.29-8.73-7.79-11.35-13.51-2.62-5.72-3.93-12.28-3.93-19.66s1.31-13.94,3.93-19.66c2.62-5.72,6.41-10.23,11.35-13.51,4.95-3.29,10.93-4.93,17.95-4.93,5.83,0,10.86,1.05,15.07,3.16s7.66,4.98,10.36,8.64c2.7,3.66,5.47,9.22,6.7,15.79h-5.21c-.96-4.43-2.55-8.33-4.76-11.69-2.22-3.36-5.13-6.02-8.75-7.98-3.62-1.96-8.09-2.94-13.4-2.94-5.91,0-10.93,1.42-15.07,4.26-4.14,2.84-7.27,6.74-9.42,11.69-2.14,4.95-3.21,10.67-3.21,17.17s1.07,12.13,3.21,17.11c2.14,4.98,5.28,8.9,9.42,11.74,4.13,2.84,9.16,4.26,15.07,4.26,5.32,0,9.78-.98,13.4-2.94,3.62-1.96,6.54-4.63,8.75-8.03,2.22-3.4,3.8-7.27,4.76-11.63h5.17c-.39,5.22-3.97,12.04-6.67,15.73-2.7,3.69-6.15,6.59-10.36,8.7s-9.23,3.16-15.07,3.16Z"></path>
+            <path d="M5.32,77.99H0V3.77h5.32v74.22Z"></path>
+            <path d="M0,5.32V0s376,0,376,0v5.32S0,5.32,0,5.32Z"></path>
+            <path d="M0,81.75v-5.32s376,0,376,0v5.32S0,81.75,0,81.75Z"></path>
+            <g transform="translate(69.13,3.77)">
+              <path d="M161.71,74.22h-5.32V0h5.32v74.22Z"></path>
+              <path d="M54.06,39.77v-5.32s105,0,105,0v5.32s-105,0-105,0Z"></path>
+              <path d="M5.32,74.22H0V0h5.32v74.22Z"></path>
+              <path d="M54.06,74.22h-5.32V0h5.32v74.22Z"></path>
+              <path d="M2.66,39.77v-5.32s48.74,0,48.74,0v5.32s-48.74,0-48.74,0Z"></path>
+              <path d="M258.12,74.22h-5.32V0h5.32v74.22ZM304.31,38.88h-49.52v-4.76h49.52v4.76ZM306.86,74.22h-5.32V0h5.32v74.22Z"></path>
+            </g>
+          </g>
+        </svg>
+      </span>
+      <p>© 2026 Shi Chun</p>
+      <span class="spacer"></span>
+      <p>Visual communications · Singapore</p>
+      <a class="social" href="https://www.linkedin.com/in/shich/" aria-label="LinkedIn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11.3 21 14.4V21h-4v-5.9c0-1.4-.02-3.2-1.95-3.2-1.96 0-2.26 1.53-2.26 3.1V21H9z"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Intro sequencing (runs early, hard safety dismissal) -->
+  <script>
+    (function () {
+      "use strict";
+      var root = document.documentElement, body = document.body;
+      var intro = document.getElementById("intro");
+      var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var alreadyPlayed = root.classList.contains("intro-skip");
+      function finish() {
+        if (body.classList.contains("intro-done")) return;
+        root.classList.remove("intro-lock");
+        body.classList.add("intro-done");
+        if (intro && intro.parentNode) intro.parentNode.removeChild(intro);
+        try { sessionStorage.setItem("introPlayed", "1"); } catch (e) {}
+      }
+      if (!intro || reduce || alreadyPlayed) { finish(); return; }
+      root.classList.add("intro-lock");
+      setTimeout(function () {
+        intro.classList.add("done");
+        var swept = false, go = function () { if (swept) return; swept = true; finish(); };
+        intro.addEventListener("transitionend", go, { once: true });
+        setTimeout(go, 700);
+      }, 4250); /* after the crossbars finish shortening (~4.1s) */
+      setTimeout(finish, 6500);
+    })();
+  </script>
+
+  <!-- Hero word-stagger, reveals, sticky header, copy-to-clipboard -->
+  <script>
+    (function () {
+      "use strict";
+
+      // Split the hero statement into word spans for a staggered reveal.
+      var h1 = document.getElementById("heroStatement");
+      if (h1) {
+        var i = 0;
+        var frag = document.createDocumentFragment();
+        Array.prototype.forEach.call(h1.childNodes, function (node) {
+          if (node.nodeType === 3) {
+            node.nodeValue.split(/(\s+)/).forEach(function (tok) {
+              if (tok.trim() === "") { frag.appendChild(document.createTextNode(tok)); return; }
+              var w = document.createElement("span"); w.className = "word";
+              w.style.setProperty("--i", i++);
+              var inner = document.createElement("span"); inner.textContent = tok;
+              w.appendChild(inner); frag.appendChild(w);
+            });
+          } else if (node.nodeType === 1) {
+            // keep inline elements (<b>, <span class="em">) as one animated unit
+            var w = document.createElement("span"); w.className = "word";
+            w.style.setProperty("--i", i++);
+            var inner = document.createElement("span");
+            inner.appendChild(node.cloneNode(true));
+            w.appendChild(inner); frag.appendChild(w);
+          }
+        });
+        h1.textContent = ""; h1.appendChild(frag);
+      }
+
+      // Scroll reveals
+      var reveals = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+        }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+        reveals.forEach(function (el, n) { el.style.transitionDelay = Math.min((n % 4) * 70, 280) + "ms"; io.observe(el); });
+      } else { reveals.forEach(function (el) { el.classList.add("in"); }); }
+
+      // Sticky header border
+      var header = document.getElementById("siteHeader");
+      var onScroll = function () { header.classList.toggle("scrolled", window.scrollY > 8); };
+      onScroll(); window.addEventListener("scroll", onScroll, { passive: true });
+
+      // Copy email
+      var btn = document.getElementById("emailBtn");
+      var note = document.getElementById("copyNote");
+      var email = "hello@heyshich.com", reset;
+      btn.addEventListener("click", function () {
+        var done = function () {
+          btn.classList.add("copied");
+          if (note) note.textContent = "Copied — hello@heyshich.com is on your clipboard.";
+          clearTimeout(reset);
+          reset = setTimeout(function () {
+            btn.classList.remove("copied");
+            if (note) note.innerHTML = 'Click to copy — or find me on <a href="https://www.linkedin.com/in/shich/">LinkedIn</a>.';
+          }, 2600);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(email).then(done).catch(function () { window.location.href = "mailto:" + email; });
+        } else { window.location.href = "mailto:" + email; }
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var h1 = document.getElementById("heroStatement");
+      if (!h1) return;
+      var words = h1.querySelectorAll(".word");
+      if (!words.length) return;
+      var ranges = [
+        { from: "designing", to: "systems," },
+        { from: "building", to: "trust" }
+      ];
+      var texts = [];
+      words.forEach(function (w) { texts.push(w.textContent.trim()); });
+      var ulEls = [];
+
+      function buildLines() {
+        ulEls.forEach(function (el) { el.remove(); });
+        ulEls = [];
+        var h1Rect = h1.getBoundingClientRect();
+        var delay = 0;
+        ranges.forEach(function (range) {
+          var si = texts.indexOf(range.from);
+          var ei = texts.indexOf(range.to);
+          if (si < 0 || ei < 0) return;
+          var rows = [];
+          var cur = null;
+          for (var i = si; i <= ei; i++) {
+            var r = words[i].getBoundingClientRect();
+            var top = Math.round(r.top);
+            if (!cur || Math.abs(cur.top - top) > 5) {
+              cur = { top: top, left: r.left, right: r.right, bottom: r.bottom };
+              rows.push(cur);
+            } else {
+              cur.right = Math.max(cur.right, r.right);
+            }
+          }
+          rows.forEach(function (row, ri) {
+            var div = document.createElement("div");
+            div.className = "hero-ul";
+            var pad = 4;
+            div.style.left = (row.left - h1Rect.left - pad) + "px";
+            div.style.width = (row.right - row.left + pad * 2) + "px";
+            div.style.top = (row.top - h1Rect.top - pad) + "px";
+            div.style.height = (row.bottom - row.top + pad * 2) + "px";
+            div.style.transitionDelay = (delay + ri * 60) + "ms";
+            h1.appendChild(div);
+            ulEls.push(div);
+          });
+          delay += rows.length * 60;
+        });
+      }
+
+      ranges.forEach(function (range) {
+        var si = texts.indexOf(range.from);
+        var ei = texts.indexOf(range.to);
+        if (si < 0 || ei < 0) return;
+        for (var i = si; i <= ei; i++) words[i].classList.add("ul-trigger");
+      });
+
+      buildLines();
+      var resizeTimer;
+      window.addEventListener("resize", function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(buildLines, 200);
+      });
+
+      var triggerEls = h1.querySelectorAll(".ul-trigger");
+      var leaveTimer;
+      triggerEls.forEach(function (el) {
+        el.addEventListener("mouseenter", function () {
+          clearTimeout(leaveTimer);
+          buildLines();
+          h1.classList.add("ul-active");
+        });
+        el.addEventListener("mouseleave", function () {
+          clearTimeout(leaveTimer);
+          leaveTimer = setTimeout(function () { h1.classList.remove("ul-active"); }, 60);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

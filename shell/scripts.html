@@ -1,0 +1,41 @@
+<script>
+    (function () {
+      "use strict";
+      var reveals = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        // Elements that cross into view together cascade top-to-bottom.
+        // On load: header fades in first (0.5s, its own faster duration),
+        // pause 0.2s, metadata strip fades in, pause 0.2s, opening description
+        // fades in — then everything else just cascades at +0.1s per element,
+        // no further pauses. (Only the load batch ever contains the header,
+        // since it unobserves itself after its first reveal — later
+        // scroll-triggered batches just cascade top-to-bottom from 0.)
+        var io = new IntersectionObserver(function (entries) {
+          var entering = entries.filter(function (e) { return e.isIntersecting; });
+          entering.sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; });
+          var headerLeads = entering.length && entering[0].target.classList.contains("hero-cs");
+          var introIdx = -1;
+          if (headerLeads) {
+            entering.forEach(function (e, idx) { if (e.target.classList.contains("intro")) introIdx = idx; });
+          }
+          entering.forEach(function (e, i) {
+            var delay;
+            if (!headerLeads) { delay = i * 100; }
+            else if (i === 0) { delay = 0; }                                   // header — fades in over 0.5s
+            else if (e.target.classList.contains("meta-row")) { delay = 700; } // 0.5s header + 0.2s pause
+            else if (e.target.classList.contains("intro")) { delay = 900; }    // +0.2s more
+            else if (introIdx !== -1 && i > introIdx) { delay = 900 + (i - introIdx) * 100; } // no more pauses, just cascade
+            else { delay = 900 + i * 100; } // intro not in this batch (short viewport) — cascade after the header/meta pauses
+            e.target.style.transitionDelay = Math.min(delay, 2500) + "ms";
+            e.target.classList.add("in");
+            io.unobserve(e.target);
+          });
+        }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+        reveals.forEach(function (el) { io.observe(el); });
+      } else { reveals.forEach(function (el) { el.classList.add("in"); }); }
+
+      var header = document.getElementById("siteHeader");
+      var onScroll = function () { header.classList.toggle("scrolled", window.scrollY > 8); };
+      onScroll(); window.addEventListener("scroll", onScroll, { passive: true });
+    })();
+  </script>

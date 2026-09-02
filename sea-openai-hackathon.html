@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sea × OpenAI Hackathon — Case Study</title>
+  <meta name="description" content="Regional Codex Hackathon, Singapore — Sea × OpenAI. Event identity, generative key visual, social launch suite and merchandise. A case study by Shich." />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 376 81.75'%3E%3Cg fill='%230E0E0E'%3E%3Cpath d='M31.36 78.87c-4.28 0-8.47-.65-12.57-1.94s-7.72-3.4-10.86-6.31c-3.14-2.92-6.38-10.28-7.93-14.79h5c1.33 4.51 3.43 8.07 6.31 10.69 2.88 2.62 6.11 4.51 9.69 5.65 3.58 1.15 7.03 1.72 10.36 1.72s6.26-.46 9.03-1.38 5.02-2.45 6.76-4.6 2.6-4.95 2.6-8.42c0-3.03-.63-5.52-1.88-7.48s-3.23-3.58-5.93-4.87-6.15-2.42-10.36-3.38l-8.75-1.99c-2.73-.59-5.3-1.37-7.7-2.33s-4.51-2.18-6.31-3.66-3.25-3.3-4.32-5.48-1.61-4.85-1.61-8.03c0-4.28 1.09-7.87 3.27-10.75s5.06-5.04 8.64-6.48 7.4-2.16 11.47-2.16c6.87 0 12.68 1.5 17.45 4.49 4.76 2.99 9.95 10.1 10.82 16.56h-5.01c-1.7-5.39-4.56-9.42-8.58-12.07s-8.99-3.99-14.9-3.99c-3.18 0-6.08.54-8.7 1.61s-4.75 2.64-6.37 4.71-2.44 4.65-2.44 7.75c0 4.36 1.33 7.63 3.99 9.8s6.61 3.86 11.85 5.04l9.42 2.22c2.95.66 5.74 1.5 8.36 2.49s4.89 2.29 6.81 3.88 3.43 3.51 4.54 5.76 1.66 5 1.66 8.25c0 4.28-1.09 7.88-3.27 10.8s-5.04 5.1-8.59 6.54-7.53 2.16-11.96 2.16Z'/%3E%3Cpath d='M277.41 78.87c-7.02 0-13-1.64-17.95-4.93s-8.73-7.79-11.35-13.51-3.93-12.28-3.93-19.66 1.31-13.94 3.93-19.66 6.41-10.23 11.35-13.51 10.93-4.93 17.95-4.93c5.83 0 10.86 1.05 15.07 3.16s7.66 4.98 10.36 8.64 5.47 9.22 6.7 15.79h-5.21c-.96-4.43-2.55-8.33-4.76-11.69s-5.13-6.02-8.75-7.98-8.09-2.94-13.4-2.94c-5.91 0-10.93 1.42-15.07 4.26s-7.27 6.74-9.42 11.69-3.21 10.67-3.21 17.17 1.07 12.13 3.21 17.11 5.28 8.9 9.42 11.74 9.16 4.26 15.07 4.26c5.32 0 9.78-.98 13.4-2.94s6.54-4.63 8.75-8.03 3.8-7.27 4.76-11.63h5.17c-.39 5.22-3.97 12.04-6.67 15.73s-6.15 6.59-10.36 8.7-9.23 3.16-15.07 3.16Z'/%3E%3Cpath d='M5.32 77.99H0V3.77h5.32v74.22Z'/%3E%3Cpath d='M0 5.32V0h376v5.32H0Z'/%3E%3Cpath d='M0 81.75v-5.32h376v5.32H0Z'/%3E%3Cg transform='translate(69.13 3.77)'%3E%3Cpath d='M161.71 74.22h-5.32V0h5.32v74.22Z'/%3E%3Cpath d='M54.06 39.77v-5.32h105v5.32h-105Z'/%3E%3Cpath d='M5.32 74.22H0V0h5.32v74.22Z'/%3E%3Cpath d='M54.06 74.22h-5.32V0h5.32v74.22Z'/%3E%3Cpath d='M2.66 39.77v-5.32h48.74v5.32H2.66Z'/%3E%3Cpath d='M258.12 74.22h-5.32V0h5.32v74.22ZM304.31 38.88h-49.52v-4.76h49.52v4.76ZM306.86 74.22h-5.32V0h5.32v74.22Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E" />
+
+  <!-- All fonts self-hosted from /fonts — no external CDN, works offline & on GitHub Pages -->
+
+  <script>document.documentElement.classList.add("js");</script>
+
+  <style>
+/* ─── Self-hosted fonts (portfolio/fonts) — no CDN, offline + GitHub-Pages safe ── */
+    /* HK Grotesk Wide — display / headings */
+    @font-face { font-family: "HK Grotesk Wide"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/HKGroteskWide-Regular.otf") format("opentype"); }
+    @font-face { font-family: "HK Grotesk Wide"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/HKGroteskWide-Medium.otf") format("opentype"); }
+    @font-face { font-family: "HK Grotesk Wide"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/HKGroteskWide-SemiBold.otf") format("opentype"); }
+    @font-face { font-family: "HK Grotesk Wide"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/HKGroteskWide-Bold.otf") format("opentype"); }
+    /* Cabinet Grotesk — labels / utility */
+    @font-face { font-family: "Cabinet Grotesk"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/CabinetGrotesk-Regular.woff2") format("woff2"), url("fonts/CabinetGrotesk-Regular.woff") format("woff"); }
+    @font-face { font-family: "Cabinet Grotesk"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/CabinetGrotesk-Medium.woff2") format("woff2"), url("fonts/CabinetGrotesk-Medium.woff") format("woff"); }
+    @font-face { font-family: "Cabinet Grotesk"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/CabinetGrotesk-Bold.woff2") format("woff2"), url("fonts/CabinetGrotesk-Bold.woff") format("woff"); }
+    /* Inter (variable) — body */
+    @font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("fonts/Inter-Variable.ttf") format("truetype"); }
+    @font-face { font-family: "Inter"; font-style: italic; font-weight: 100 900; font-display: swap; src: url("fonts/Inter-Italic-Variable.ttf") format("truetype"); }
+
+    :root {
+      --bg:      #FFFFFF;
+      --panel:   #E3E4DD;
+      --ink:     #0E0E0E;
+      --ink-2:   #282828;
+      --muted:   rgba(14,14,14,.58);
+      --line:    rgba(14,14,14,.16);
+      --line-2:  rgba(14,14,14,.34);
+      --chip-border: #898989;
+      --chip-text:   #505050;
+      --black:   #000;
+      --spring:  cubic-bezier(0.22, 1, 0.36, 1);
+      --font-display: "Cabinet Grotesk", system-ui, sans-serif;
+      --font-wide:    "Cabinet Grotesk", system-ui, sans-serif; /* utility labels (was Hanken) */
+      --font-body:    "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --font-hk:      "HK Grotesk Wide", "Cabinet Grotesk", system-ui, sans-serif;
+      --pad: clamp(20px, 4vw, 50px);
+      --content-max: 1670px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    ::selection { background: rgba(14,14,14,.14); }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
+    .shell { width: 100%; max-width: calc(var(--content-max) + var(--pad) * 2); margin-inline: auto; padding-inline: var(--pad); }
+    .skip-link { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: 6px; transition: top .2s var(--spring); }
+    .skip-link:focus { top: 12px; }
+
+    /* ─── Header / nav (same as home) ─────────────────────────────────── */
+    header { position: sticky; top: 0; z-index: 40; background: color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid transparent; transition: border-color .3s var(--spring); }
+    header.scrolled { border-bottom-color: var(--line); }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding-block: 20px; }
+    .nav-links { display: flex; align-items: center; gap: clamp(20px, 4vw, 40px); }
+    .nav-links a { font-family: var(--font-wide); font-size: 15px; font-weight: 500; letter-spacing: 0.02em; color: var(--ink-2); transition: color .2s var(--spring); position: relative; }
+    .nav-links a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -3px; height: 1.5px; background: var(--ink); transition: right .3s var(--spring); }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover::after { right: 0; }
+    .logo-link { display: inline-flex; color: var(--ink); }
+    .logo-link svg { height: clamp(26px, 2.6vw, 34px); width: auto; display: block; overflow: hidden; }
+    .logo-piece { transform: translateY(82px); transition: transform .55s var(--spring); }
+    .logo-link:hover .logo-piece, .logo-link:focus-visible .logo-piece { transform: translateY(0); }
+
+    /* ─── Labels, chips, section heads (same as home) ─────────────────── */
+    .label { font-family: var(--font-wide); font-weight: 500; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-2); }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px 10px; }
+    .chip { font-family: var(--font-body); font-weight: 400; font-size: 12px; line-height: 1; letter-spacing: 0.08em; text-transform: uppercase; color: var(--chip-text); border: 1px solid var(--chip-border); padding: 6px 11px; white-space: nowrap; }
+    .sec-head { display: flex; align-items: center; gap: clamp(14px, 1.6vw, 22px); margin-bottom: clamp(2rem, 4vw, 3.25rem); }
+    .sec-mark { flex: none; width: clamp(34px, 4vw, 50px); height: clamp(34px, 4vw, 50px); color: var(--ink); }
+    .sec-mark svg { width: 100%; height: 100%; display: block; }
+    .sec-title { font-family: var(--font-hk); font-stretch: 125%; font-weight: 500; font-size: clamp(2rem, 4.6vw, 3.5rem); line-height: 1.02; letter-spacing: -0.01em; margin: 0; }
+    .kicker { font-family: var(--font-wide); font-weight: 500; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.9rem; }
+
+    section { padding-block: clamp(3rem, 7vw, 104px); }
+    /* Tighter vertical rhythm between the graphic-led sections below the
+       opening description — desktop gap between each is 50px + 50px = 100px.
+       Space above (header/hero/intro-top) and after the graphic run (into
+       the CTA/footer) is untouched. */
+    .sec-tight { padding-block: clamp(3rem, 7vw, 50px); }
+    #intro { padding-bottom: clamp(3rem, 7vw, 50px); }
+    .photos { padding-block: clamp(3rem, 7vw, 50px); }
+    /* Even tighter on mobile — the 3rem floor above still reads roomy on a
+       small screen; drop it further so the graphic-led run feels continuous. */
+    @media (max-width: 720px) {
+      .sec-tight { padding-block: 1.5rem; }
+      #intro { padding-bottom: 1.5rem; }
+      .photos { padding-block: 1.5rem; }
+    }
+    html.js .reveal { opacity: 0; transform: translateY(30px); }
+    html.js .reveal.in { opacity: 1; transform: none; transition: opacity 1.1s var(--spring), transform 1.2s var(--spring); }
+    /* Header (logo + circles) fades in faster than the rest of the page (0.5s) */
+    html.js .hero-cs.reveal.in { transition: opacity .5s var(--spring), transform .5s var(--spring); }
+
+    /* ─── Box + Arrow (same as home) ──────────────────────────────────── */
+    .arrow-sq { position: relative; flex: none; display: grid; place-items: center; overflow: hidden; width: 48px; height: 48px; border: 2px solid var(--ink); border-radius: 0; color: var(--ink); transition: background .3s var(--spring), color .3s var(--spring), border-color .3s var(--spring); }
+    .arrow-sq svg { grid-area: 1 / 1; width: 100%; height: 100%; padding: 4px; }
+    .arrow-sq .arrow-lead { animation: arrowBobX 3s ease-in-out infinite; }
+    .arrow-sq .arrow-trail { transform: translateX(-118%); opacity: 0; }
+    .arrow-link:hover .arrow-sq, .stat-link:hover .arrow-sq { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .arrow-link:hover .arrow-lead, .stat-link:hover .arrow-lead { animation: arrowLeaveFull .5s var(--spring) forwards; }
+    .arrow-link:hover .arrow-trail, .stat-link:hover .arrow-trail { animation: arrowEnterFull .5s var(--spring) forwards; }
+    @keyframes arrowBobX { 0%,100% { transform: translateX(0); } 50% { transform: translateX(3px); } }
+    @keyframes arrowLeaveFull { to { transform: translateX(118%); opacity: 0; } }
+    @keyframes arrowEnterFull { 55% { opacity: 1; } to { transform: translateX(0); opacity: 1; } }
+
+/* ─── Footer (same as home) ───────────────────────────────────────── */
+    footer { border-top: 1px solid var(--line); }
+    .foot { display: flex; align-items: center; gap: 1.5rem; padding-block: 2.25rem; flex-wrap: wrap; }
+    .foot .logo-foot { color: var(--ink); }
+    .foot .logo-foot svg { height: 22px; width: auto; display: block; }
+    .foot p { margin: 0; color: var(--muted); font-size: 14px; }
+    .foot .spacer { flex: 1; }
+    .foot .social { width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 999px; display: grid; place-items: center; color: var(--ink-2); transition: background .25s var(--spring), color .25s var(--spring), border-color .25s var(--spring); }
+    .foot .social:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+      .hero-cs-circles img { animation: none !important; }
+      html.js .reveal { opacity: 1; transform: none; }
+      .arrow-trail { display: none; }
+    }
+
+/* ─── Hero (animated: rotating circles + static logo) ─────────────── */
+    .hero-cs { position: relative; overflow: hidden; background: var(--black); --hh: 600px; height: var(--hh); display: grid; place-items: center; }
+    .hero-cs-circles { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+    /* A zero-size pivot sits exactly at the hero centre and rotates; the art is
+       offset so its true concentric centre lands on that pivot — so the ring
+       stays centred on the logo and rotation is perfectly seamless. This centre
+       (50.0035%, 50.2982%) was solved by least-squares circle-fitting 615 of the
+       arc strokes in Circles.svg (not eyeballed from one background circle —
+       that gave 48.76%/51.72%, which is why it wobbled off-centre before).
+       Scaled up to fill the frame like Hackathon_Header.png. */
+    .hero-cs-spin { position: absolute; top: 50%; left: 50%; width: 0; height: 0; animation: spin 90s linear infinite; will-change: transform; }
+    .hero-cs-spin img { --s: max(122vw, calc(var(--hh) * 2.75)); position: absolute; width: var(--s); height: var(--s); max-width: none; left: calc(var(--s) * -0.500035); top: calc(var(--s) * -0.502982); }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    /* Floor raised (270→320) so the lockup reads larger on phones — the 51vw
+       curve is unchanged, so nothing above ~627px viewport width is affected. */
+    .hero-cs-logo { position: relative; z-index: 2; width: clamp(320px, 51vw, 660px); padding: 0 var(--pad);
+      /* Optical nudge (-3%): the wordmark's ink mass isn't symmetric top/bottom
+         within its own frame, so geometric centring alone reads slightly low —
+         shift up. Extra -20px on top of that, at max width. */
+      transform: translateY(calc(-3% - 20px)); }
+    .hero-cs-logo img { width: 100%; height: auto; }
+    /* soft vignette so the trails fade at the frame edges */
+    .hero-cs::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(120% 80% at 50% 50%, transparent 55%, rgba(0,0,0,.55) 100%); }
+
+    /* ─── Two-column intro: metadata row sits well above the title/copy row;
+           title takes 25% width, description the remaining 75% ──────────── */
+    .intro { display: grid; grid-template-columns: 1fr 3fr; grid-template-rows: auto auto; column-gap: clamp(2rem, 5vw, 5rem); row-gap: clamp(2.5rem, 6vw, 4.5rem); align-items: start; }
+    @media (max-width: 860px) { .intro { grid-template-columns: 1fr; grid-template-rows: auto auto auto; gap: 1.75rem; } }
+    .intro .meta-inline { grid-column: 2; grid-row: 1; display: flex; flex-wrap: wrap; gap: 0.5rem 2.5rem; margin: 0; }
+    @media (max-width: 860px) { .intro .meta-inline { grid-column: 1; grid-row: auto; } }
+    .intro .meta-inline > div { display: flex; gap: 0.4em; align-items: baseline; }
+    .intro .meta-inline dt { margin: 0; font-family: var(--font-body); font-weight: 400; font-size: 13px; color: var(--muted); white-space: nowrap; }
+    .intro .meta-inline dd { margin: 0; font-family: var(--font-body); font-weight: 500; font-size: 13px; color: var(--ink); }
+    .intro h1 { grid-column: 1; grid-row: 2; font-family: var(--font-hk); font-stretch: 125%; font-weight: 500; font-size: clamp(1.9rem, 3.8vw, 3.4rem); line-height: 1.08; letter-spacing: -0.015em; margin: 0; }
+    @media (max-width: 860px) { .intro h1 { grid-column: 1; grid-row: auto; } }
+    .intro .body { grid-column: 2; grid-row: 2; }
+    @media (max-width: 860px) { .intro .body { grid-column: 1; grid-row: auto; } }
+    .intro .body p { margin: 0 0 1.2rem; font-size: clamp(1.1rem, 1.6vw, 1.4rem); line-height: 1.62; color: var(--ink-2); max-width: 100%; }
+    .intro .body p:last-child { margin-bottom: 0; }
+
+    /* ─── Element derivation (image left, body copy right) ─────────────── */
+    .element-row { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+    @media (max-width: 860px) { .element-row { grid-template-columns: 1fr; gap: 1.75rem; } }
+    .element-row .media { border-radius: 3px; overflow: hidden; background: var(--black); aspect-ratio: 2 / 1; }
+    .element-row .media img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    /* Copy sits bottom-aligned against the media, left-aligned within its column */
+    .element-row .copy { align-self: end; text-align: left; }
+    .element-row .copy .copy-kicker { font-family: var(--font-hk); font-stretch: 125%; font-weight: 400; font-size: 13px; letter-spacing: 0.01em; color: var(--muted); margin: 0 0 2.3rem; }
+    .element-row .copy p { margin: 0; font-family: var(--font-body); font-size: clamp(1rem, 1.3vw, 1.2rem); line-height: 1.62; color: var(--ink-2); max-width: 46ch; }
+
+    /* ─── Media / grids ───────────────────────────────────────────────── */
+    .media { border-radius: 3px; overflow: hidden; background: var(--black); }
+    .media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    figure { margin: 0; }
+    figcaption { margin-top: 1rem; }
+    figcaption .cap-t { font-family: var(--font-hk); font-stretch: 125%; font-weight: 500; font-size: clamp(1.05rem, 1.5vw, 1.35rem); letter-spacing: -0.01em; }
+    figcaption .cap-d { margin-top: .35rem; color: var(--muted); font-size: 15px; max-width: 40ch; }
+
+    /* ─── Social launch showcase (single pre-composed asset) ────────────── */
+    .sm-media { border-radius: 3px; overflow: hidden; }
+    .sm-media img { width: 100%; height: auto; display: block; }
+
+    /* ─── Event photos ────────────────────────────────────────────────── */
+    .photo-spread { width: 100%; }
+    .photo-spread img { width: 100%; height: clamp(300px, 56vw, 780px); object-fit: cover; object-position: center 78%; display: block; }
+    .photo-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(1rem, 2vw, 1.75rem); margin-top: clamp(1rem, 2vw, 1.75rem); }
+    .photo-grid figure { grid-column: span 2; }
+    .photo-grid .pg-big { grid-column: span 3; }
+    .photo-grid img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 3px; display: block; }
+    @media (max-width: 720px) { .photo-grid { grid-template-columns: repeat(2, 1fr); } .photo-grid figure, .photo-grid .pg-big { grid-column: auto; } }
+
+    /* ─── Event details card ──────────────────────────────────────────── */
+    .details { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding-block: clamp(2.5rem, 5vw, 4.5rem); }
+    @media (max-width: 860px) { .details { grid-template-columns: 1fr; gap: 2rem; } }
+    .details dl { display: grid; grid-template-columns: auto 1fr; gap: 0.9rem 2rem; margin: 0; }
+    .details dt { font-family: var(--font-wide); font-weight: 500; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); align-self: center; }
+    .details dd { margin: 0; font-family: var(--font-hk); font-stretch: 125%; font-weight: 500; font-size: clamp(1.15rem, 1.8vw, 1.6rem); letter-spacing: -0.01em; }
+    .details .cta-wrap { justify-self: start; }
+    .arrow-link { display: inline-flex; align-items: center; gap: 1rem; }
+    .arrow-link .lbl { font-family: var(--font-hk); font-stretch: 125%; font-weight: 500; font-size: clamp(1.1rem, 1.6vw, 1.4rem); letter-spacing: -0.01em; }
+    .arrow-link .sub { display: block; color: var(--muted); font-family: var(--font-body); font-size: 14px; letter-spacing: 0; margin-top: 3px; }
+
+    /* ─── Merch section ──────────────────────────────────────────────────
+       Section sits on the normal page background, so the 100px gap between
+       thumbnails reads as a clean separation, not a seam in a black field.
+       Each thumbnail cell stays black — that's the letterbox fill for the
+       non-square product shots (see .merch-grid .media below). */
+    /* Four equal square thumbnails. Non-square source images are shown in
+       full (object-fit: contain) rather than cropped, with the letterbox
+       bars filled solid black. */
+    /* Gap matches .photo-grid exactly (clamp(1rem, 2vw, 1.75rem)); grid itself
+       runs the full 1670px content width (shell). Three columns, two rows —
+       the first cell is a copy block (kicker + line), not a thumbnail. */
+    .merch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2vw, 1.75rem); width: 100%; }
+    .merch-grid figure { position: relative; }
+    .merch-grid .media { background: var(--black); border-radius: 3px; aspect-ratio: 1 / 1; overflow: hidden; }
+    .merch-grid .media img { width: 100%; height: 100%; object-fit: contain; }
+    .merch-grid .merch-copy { display: flex; flex-direction: column; justify-content: flex-end; text-align: left; }
+    .merch-grid .merch-copy .copy-kicker { font-family: var(--font-hk); font-stretch: 125%; font-weight: 400; font-size: 13px; letter-spacing: 0.01em; color: var(--muted); margin: 0 0 2.5rem; }
+    .merch-grid .merch-copy p { margin: 0; font-family: var(--font-body); font-size: clamp(1rem, 1.3vw, 1.2rem); line-height: 1.5; color: var(--ink-2); }
+    /* Mobile: two columns (3 rows of 2) */
+    @media (max-width: 720px) { .merch-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    /* ─── Impact stats ────────────────────────────────────────────────── */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+    @media (max-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 1.5rem; } }
+    .stat .n { font-family: var(--font-hk); font-stretch: 125%; font-weight: 500; font-size: clamp(3rem, 6.5vw, 5.5rem); letter-spacing: -0.02em; line-height: 1; }
+    .stat .l { margin-top: 0.6rem; color: var(--muted); font-size: 15px; max-width: 18ch; }
+
+    /* ─── Next project (no link yet — page not built) ───────────────────── */
+    .more .more-row { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding-block: 100px; }
+    .more .more-t { font-family: var(--font-hk); font-stretch: 125%; font-weight: 500; font-size: clamp(1.6rem, 3.4vw, 2.8rem); letter-spacing: -0.02em; }
+    .more .more-k { font-family: var(--font-wide); font-weight: 500; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; }
+  </style>
+</head>
+
+<body>
+  <a href="#intro" class="skip-link">Skip to content</a>
+
+  <!-- ─── Header ─────────────────────────────────────────────────────── -->
+  <header id="siteHeader">
+    <div class="shell nav">
+      <a href="index.html" class="logo-link" aria-label="Shich — home">
+        <svg viewBox="0 0 376 81.75" role="img" aria-hidden="true">
+          <g fill="currentColor">
+            <path d="M31.36,78.87c-4.28,0-8.47-.65-12.57-1.94s-7.72-3.4-10.86-6.31c-3.14-2.92-6.38-10.28-7.93-14.79h5c1.33,4.51,3.43,8.07,6.31,10.69,2.88,2.62,6.11,4.51,9.69,5.65,3.58,1.15,7.03,1.72,10.36,1.72s6.26-.46,9.03-1.38c2.77-.92,5.02-2.45,6.76-4.6,1.73-2.14,2.6-4.95,2.6-8.42,0-3.03-.63-5.52-1.88-7.48-1.26-1.96-3.23-3.58-5.93-4.87-2.7-1.29-6.15-2.42-10.36-3.38l-8.75-1.99c-2.73-.59-5.3-1.37-7.7-2.33-2.4-.96-4.51-2.18-6.31-3.66-1.81-1.48-3.25-3.3-4.32-5.48-1.07-2.18-1.61-4.85-1.61-8.03,0-4.28,1.09-7.87,3.27-10.75,2.18-2.88,5.06-5.04,8.64-6.48,3.58-1.44,7.4-2.16,11.47-2.16,6.87,0,12.68,1.5,17.45,4.49,4.76,2.99,9.95,10.1,10.82,16.56h-5.01c-1.7-5.39-4.56-9.42-8.58-12.07-4.03-2.66-8.99-3.99-14.9-3.99-3.18,0-6.08.54-8.7,1.61-2.62,1.07-4.75,2.64-6.37,4.71-1.63,2.07-2.44,4.65-2.44,7.75,0,4.36,1.33,7.63,3.99,9.8,2.66,2.18,6.61,3.86,11.85,5.04l9.42,2.22c2.95.66,5.74,1.5,8.36,2.49,2.62,1,4.89,2.29,6.81,3.88,1.92,1.59,3.43,3.51,4.54,5.76,1.11,2.25,1.66,5,1.66,8.25,0,4.28-1.09,7.88-3.27,10.8-2.18,2.92-5.04,5.1-8.59,6.54s-7.53,2.16-11.96,2.16Z"></path>
+            <path d="M277.41,78.87c-7.02,0-13-1.64-17.95-4.93-4.95-3.29-8.73-7.79-11.35-13.51-2.62-5.72-3.93-12.28-3.93-19.66s1.31-13.94,3.93-19.66c2.62-5.72,6.41-10.23,11.35-13.51,4.95-3.29,10.93-4.93,17.95-4.93,5.83,0,10.86,1.05,15.07,3.16s7.66,4.98,10.36,8.64c2.7,3.66,5.47,9.22,6.7,15.79h-5.21c-.96-4.43-2.55-8.33-4.76-11.69-2.22-3.36-5.13-6.02-8.75-7.98-3.62-1.96-8.09-2.94-13.4-2.94-5.91,0-10.93,1.42-15.07,4.26-4.14,2.84-7.27,6.74-9.42,11.69-2.14,4.95-3.21,10.67-3.21,17.17s1.07,12.13,3.21,17.11c2.14,4.98,5.28,8.9,9.42,11.74,4.13,2.84,9.16,4.26,15.07,4.26,5.32,0,9.78-.98,13.4-2.94,3.62-1.96,6.54-4.63,8.75-8.03,2.22-3.4,3.8-7.27,4.76-11.63h5.17c-.39,5.22-3.97,12.04-6.67,15.73-2.7,3.69-6.15,6.59-10.36,8.7s-9.23,3.16-15.07,3.16Z"></path>
+            <path d="M5.32,77.99H0V3.77h5.32v74.22Z"></path>
+            <path d="M0,5.32V0s376,0,376,0v5.32S0,5.32,0,5.32Z"></path>
+            <path d="M0,81.75v-5.32s376,0,376,0v5.32S0,81.75,0,81.75Z"></path>
+          </g>
+          <g class="logo-piece" fill="currentColor">
+            <g transform="translate(69.13,3.77)">
+              <path d="M161.71,74.22h-5.32V0h5.32v74.22Z"></path>
+              <path d="M54.06,39.77v-5.32s105,0,105,0v5.32s-105,0-105,0Z"></path>
+              <path d="M5.32,74.22H0V0h5.32v74.22Z"></path>
+              <path d="M54.06,74.22h-5.32V0h5.32v74.22Z"></path>
+              <path d="M2.66,39.77v-5.32s48.74,0,48.74,0v5.32s-48.74,0-48.74,0Z"></path>
+              <path d="M258.12,74.22h-5.32V0h5.32v74.22ZM304.31,38.88h-49.52v-4.76h49.52v4.76ZM306.86,74.22h-5.32V0h5.32v74.22Z"></path>
+            </g>
+          </g>
+        </svg>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html#work">Work</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ─── Hero: identity is the headline (rotating circles + logo) ───── -->
+    <section class="hero-cs reveal" aria-label="Regional Codex Hackathon key visual">
+      <div class="hero-cs-circles" aria-hidden="true">
+        <div class="hero-cs-spin"><img src="assets/seaxopenai/Circles.svg" alt="" /></div>
+      </div>
+      <div class="hero-cs-logo">
+        <img src="assets/seaxopenai/Hackathon Logo.svg" alt="Regional Codex Hackathon, Singapore — Sea and OpenAI co-brand lockup" />
+      </div>
+    </section>
+
+    <!-- ─── Two-column intro: heading left; metadata + copy stacked right ── -->
+    <section id="intro" class="shell">
+      <div class="intro reveal">
+        <h1>Sea x OpenAI Codex Hackathon</h1>
+        <dl class="meta-inline">
+          <div><dt>Type:</dt><dd>External . Employer Branding . Event Identity</dd></div>
+          <div><dt>Scope:</dt><dd>Art Direction . Creative Production . End-to-end Production of Merchandise and Setup . Actual Day Logistics Planning</dd></div>
+          <div><dt>Year:</dt><dd>2026</dd></div>
+        </dl>
+        <div class="body">
+          <p>Launched in Singapore on 6 June 2026, the Sea x OpenAI Codex Hackathon marks the start of a first-of-its-kind regional hackathon series, bringing together the best and brightest AI builders from across APAC to create innovative new products that have the potential to shape the experiences of millions.</p>
+          <p>The visual identity was designed to capture the essence of what this landmark hackathon represented: The power of collaboration, pushing frontiers and endless possibilities in the new age of AI assisted hackathons.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Where the circles come from ────────────────────────────────── -->
+    <section class="shell sec-tight">
+      <div class="element-row reveal">
+        <div class="media">
+          <img src="assets/seaxopenai/Hackathon-Element.png" alt="Three icons on black: Sea's circular globe logo with wavy colour bands, OpenAI's interlocking blossom mark, and the resulting circular light-trail motif" loading="lazy" />
+        </div>
+        <div class="copy">
+          <p class="copy-kicker">Visual Language</p>
+          <p>The concentric circle motif fuses the spherical shapes from both Sea and OpenAI logos and uses the palette from Sea to form the individual coloured arcs and spheres.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Social launch showcase ─────────────────────────────────────── -->
+    <section class="shell sec-tight">
+      <div class="sm-media reveal">
+        <img src="assets/seaxopenai/Hackathon SM.jpg" alt="Social launch series, presented as an Instagram mockup — the Regional Codex Hackathon announcement, event details, build directions and team prizes posts" loading="lazy" />
+      </div>
+    </section>
+
+    <!-- ─── Merch (image-led, thumbnails on the page background) ─────────── -->
+    <section class="shell sec-tight">
+      <div class="merch-grid">
+        <figure class="reveal merch-copy">
+          <p class="copy-kicker">Swag and Token of Appreciation for Judges</p>
+          <p>Keeping it simple and cool for the cool kids.</p>
+        </figure>
+        <figure class="reveal"><div class="media"><img src="assets/seaxopenai/Sea x OpenAI Tshirt.png" alt="Black T-shirt with the sea and OpenAI co-brand lockup" loading="lazy" /></div></figure>
+        <figure class="reveal"><div class="media"><img src="assets/seaxopenai/Sea x OpenAI Totebag.png" alt="Black tote bag with the sea and OpenAI lockup" loading="lazy" /></div></figure>
+        <figure class="reveal"><div class="media"><img src="assets/seaxopenai/Sea x OpenAI Cup.jpg" alt="Black mug with the sea and OpenAI lockup" loading="lazy" /></div></figure>
+        <figure class="reveal"><div class="media"><img src="assets/seaxopenai/Sea x OpenAI Pouch.png" alt="Black zip pouch with the sea and OpenAI lockup" loading="lazy" /></div></figure>
+        <figure class="reveal"><div class="media"><img src="assets/seaxopenai/Sea x OpenAI Lanyard.png" alt="Black lanyard with a Committee access card" loading="lazy" /></div></figure>
+      </div>
+    </section>
+
+    <!-- ─── Reach ──────────────────────────────────────────────────────── -->
+    <section class="shell sec-tight">
+      <div class="stats">
+        <div class="stat reveal"><div class="n">1,200+</div><div class="l">sign-ups across Singapore</div></div>
+        <div class="stat reveal"><div class="n">40</div><div class="l">teams</div></div>
+        <div class="stat reveal"><div class="n">144</div><div class="l">participants on the day</div></div>
+        <div class="stat reveal"><div class="n">US$50K</div><div class="l">prize pool in API credits</div></div>
+      </div>
+    </section>
+
+    <!-- ─── Event photos ───────────────────────────────────────────────── -->
+    <section class="photos">
+      <div class="photo-spread shell reveal"><img src="assets/seaxopenai/Hackathon Group Photo.jpg" alt="Group photo of participants on stage at the Regional Codex Hackathon, Singapore" loading="lazy" /></div>
+      <div class="shell">
+        <div class="photo-grid">
+          <figure class="pg-big reveal"><img src="assets/seaxopenai/Hackathon Photo (1).jpg" alt="Hackathon event photo" loading="lazy" /></figure>
+          <figure class="pg-big reveal"><img src="assets/seaxopenai/Hackathon Photo (2).jpg" alt="Hackathon event photo" loading="lazy" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="more shell">
+      <a href="sea-global-map.html" class="more-row stat-link reveal">
+        <span>
+          <span class="more-k">Next</span>
+          <span class="more-t">Sea Global MAP</span>
+        </span>
+        <span class="arrow-sq" aria-hidden="true">
+          <svg class="arrow-lead" viewBox="0 0 52 52" fill="none"><line x1=".9" y1="26" x2="51.1" y2="26" stroke="currentColor" stroke-width="2.4" stroke-miterlimit="10"/><polyline points="26 51.1 51.1 26 26 .9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="arrow-trail" viewBox="0 0 52 52" fill="none"><line x1=".9" y1="26" x2="51.1" y2="26" stroke="currentColor" stroke-width="2.4" stroke-miterlimit="10"/><polyline points="26 51.1 51.1 26 26 .9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </section>
+
+  </main>
+
+  <!-- ─── Footer ─────────────────────────────────────────────────────── -->
+  <footer>
+    <div class="shell foot">
+      <span class="logo-foot" aria-hidden="true">
+        <svg viewBox="0 0 376 81.75">
+          <g fill="currentColor">
+            <path d="M31.36,78.87c-4.28,0-8.47-.65-12.57-1.94s-7.72-3.4-10.86-6.31c-3.14-2.92-6.38-10.28-7.93-14.79h5c1.33,4.51,3.43,8.07,6.31,10.69,2.88,2.62,6.11,4.51,9.69,5.65,3.58,1.15,7.03,1.72,10.36,1.72s6.26-.46,9.03-1.38c2.77-.92,5.02-2.45,6.76-4.6,1.73-2.14,2.6-4.95,2.6-8.42,0-3.03-.63-5.52-1.88-7.48-1.26-1.96-3.23-3.58-5.93-4.87-2.7-1.29-6.15-2.42-10.36-3.38l-8.75-1.99c-2.73-.59-5.3-1.37-7.7-2.33-2.4-.96-4.51-2.18-6.31-3.66-1.81-1.48-3.25-3.3-4.32-5.48-1.07-2.18-1.61-4.85-1.61-8.03,0-4.28,1.09-7.87,3.27-10.75,2.18-2.88,5.06-5.04,8.64-6.48,3.58-1.44,7.4-2.16,11.47-2.16,6.87,0,12.68,1.5,17.45,4.49,4.76,2.99,9.95,10.1,10.82,16.56h-5.01c-1.7-5.39-4.56-9.42-8.58-12.07-4.03-2.66-8.99-3.99-14.9-3.99-3.18,0-6.08.54-8.7,1.61-2.62,1.07-4.75,2.64-6.37,4.71-1.63,2.07-2.44,4.65-2.44,7.75,0,4.36,1.33,7.63,3.99,9.8,2.66,2.18,6.61,3.86,11.85,5.04l9.42,2.22c2.95.66,5.74,1.5,8.36,2.49,2.62,1,4.89,2.29,6.81,3.88,1.92,1.59,3.43,3.51,4.54,5.76,1.11,2.25,1.66,5,1.66,8.25,0,4.28-1.09,7.88-3.27,10.8-2.18,2.92-5.04,5.1-8.59,6.54s-7.53,2.16-11.96,2.16Z"></path>
+            <path d="M277.41,78.87c-7.02,0-13-1.64-17.95-4.93-4.95-3.29-8.73-7.79-11.35-13.51-2.62-5.72-3.93-12.28-3.93-19.66s1.31-13.94,3.93-19.66c2.62-5.72,6.41-10.23,11.35-13.51,4.95-3.29,10.93-4.93,17.95-4.93,5.83,0,10.86,1.05,15.07,3.16s7.66,4.98,10.36,8.64c2.7,3.66,5.47,9.22,6.7,15.79h-5.21c-.96-4.43-2.55-8.33-4.76-11.69-2.22-3.36-5.13-6.02-8.75-7.98-3.62-1.96-8.09-2.94-13.4-2.94-5.91,0-10.93,1.42-15.07,4.26-4.14,2.84-7.27,6.74-9.42,11.69-2.14,4.95-3.21,10.67-3.21,17.17s1.07,12.13,3.21,17.11c2.14,4.98,5.28,8.9,9.42,11.74,4.13,2.84,9.16,4.26,15.07,4.26,5.32,0,9.78-.98,13.4-2.94,3.62-1.96,6.54-4.63,8.75-8.03,2.22-3.4,3.8-7.27,4.76-11.63h5.17c-.39,5.22-3.97,12.04-6.67,15.73-2.7,3.69-6.15,6.59-10.36,8.7s-9.23,3.16-15.07,3.16Z"></path>
+            <path d="M5.32,77.99H0V3.77h5.32v74.22Z"></path>
+            <path d="M0,5.32V0s376,0,376,0v5.32S0,5.32,0,5.32Z"></path>
+            <path d="M0,81.75v-5.32s376,0,376,0v5.32S0,81.75,0,81.75Z"></path>
+            <g transform="translate(69.13,3.77)">
+              <path d="M161.71,74.22h-5.32V0h5.32v74.22Z"></path>
+              <path d="M54.06,39.77v-5.32s105,0,105,0v5.32s-105,0-105,0Z"></path>
+              <path d="M5.32,74.22H0V0h5.32v74.22Z"></path>
+              <path d="M54.06,74.22h-5.32V0h5.32v74.22Z"></path>
+              <path d="M2.66,39.77v-5.32s48.74,0,48.74,0v5.32s-48.74,0-48.74,0Z"></path>
+              <path d="M258.12,74.22h-5.32V0h5.32v74.22ZM304.31,38.88h-49.52v-4.76h49.52v4.76ZM306.86,74.22h-5.32V0h5.32v74.22Z"></path>
+            </g>
+          </g>
+        </svg>
+      </span>
+      <p>© 2026 Shi Chun</p>
+      <span class="spacer"></span>
+      <p>Sea × OpenAI — Regional Codex Hackathon</p>
+      <a class="social" href="https://www.linkedin.com/in/shich/" aria-label="LinkedIn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11.3 21 14.4V21h-4v-5.9c0-1.4-.02-3.2-1.95-3.2-1.96 0-2.26 1.53-2.26 3.1V21H9z"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+      var reveals = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        // Elements that cross into view together cascade top-to-bottom.
+        // On load: header (logo + circles) fades in first (0.5s, its own
+        // faster duration), pause 0.2s, then the intro block (heading +
+        // metadata + opening description, now one unit) fades in —
+        // everything else just cascades at +0.1s per element, no further
+        // pauses. (Only the load batch ever contains the header, since it
+        // unobserves itself after its first reveal — later scroll-triggered
+        // batches just cascade top-to-bottom from 0.)
+        var io = new IntersectionObserver(function (entries) {
+          var entering = entries.filter(function (e) { return e.isIntersecting; });
+          entering.sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; });
+          var headerLeads = entering.length && entering[0].target.classList.contains("hero-cs");
+          var introIdx = -1;
+          if (headerLeads) {
+            entering.forEach(function (e, idx) { if (e.target.classList.contains("intro")) introIdx = idx; });
+          }
+          entering.forEach(function (e, i) {
+            var delay;
+            if (!headerLeads) { delay = i * 100; }
+            else if (i === 0) { delay = 0; }                                // header — fades in over 0.5s
+            else if (e.target.classList.contains("intro")) { delay = 700; } // 0.5s header + 0.2s pause
+            else if (introIdx !== -1 && i > introIdx) { delay = 700 + (i - introIdx) * 100; } // no more pauses, just cascade
+            else { delay = 700 + i * 100; } // intro not in this batch (short viewport) — cascade after the header pause
+            e.target.style.transitionDelay = Math.min(delay, 2500) + "ms";
+            e.target.classList.add("in");
+            io.unobserve(e.target);
+          });
+        }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+        reveals.forEach(function (el) { io.observe(el); });
+      } else { reveals.forEach(function (el) { el.classList.add("in"); }); }
+
+      var header = document.getElementById("siteHeader");
+      var onScroll = function () { header.classList.toggle("scrolled", window.scrollY > 8); };
+      onScroll(); window.addEventListener("scroll", onScroll, { passive: true });
+    })();
+  </script>
+</body>
+</html>
